@@ -32,9 +32,6 @@ function makeGraphs(error, projectsJson) {
     var totalDonationsDim = ndx.dimension(function (d) {
         return d["total_donations"];
     });
-    var fundingStatus = ndx.dimension(function (d) {
-        return d["funding_status"];
-    });
     var gradeLevel = ndx.dimension(function (d) {
         return d["grade_level"];
     });
@@ -44,7 +41,6 @@ function makeGraphs(error, projectsJson) {
     var numProjectsByDate = dateDim.group();
     var numProjectsByResourceType = resourceTypeDim.group();
     var numProjectsByPovertyLevel = povertyLevelDim.group();
-    var numProjectsByFundingStatus = fundingStatus.group();
     var numProjectsByGradeLevel = gradeLevel.group();
     var totalDonationsByState = stateDim.group().reduceSum(function (d) {
         return d["total_donations"];
@@ -69,7 +65,6 @@ function makeGraphs(error, projectsJson) {
     var povertyLevelChart = dc.rowChart("#poverty-level-row-chart");
     var numberProjectsND = dc.numberDisplay("#number-projects-nd");
     var totalDonationsND = dc.numberDisplay("#total-donations-nd");
-    var fundingStatusChart = dc.pieChart("#funding-chart");
     var gradeLevelChart = dc.pieChart("#grade-chart");
 
 
@@ -122,15 +117,6 @@ function makeGraphs(error, projectsJson) {
         .dimension(povertyLevelDim)
         .group(numProjectsByPovertyLevel)
         .xAxis().ticks(4);
-
-    fundingStatusChart
-        .ordinalColors(["#79CED7", "#66AFB2", "#C96A23", "#D3D1C5", "#F5821F"])
-        .height(220)
-        .radius(90)
-        .innerRadius(40)
-        .transitionDuration(1500)
-        .dimension(fundingStatus)
-        .group(numProjectsByFundingStatus);
 
     gradeLevelChart
         .ordinalColors(["#79CED7", "#66AFB2", "#C96A23", "#D3D1C5", "#F5821F"])
