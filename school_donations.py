@@ -10,7 +10,7 @@ MONGODB_PORT = 27017
 DBS_NAME = 'donorsUSA'
 COLLECTION_NAME = 'projects'
 FIELDS = {'funding_status': True, 'school_state': True, 'resource_type': True, 'poverty_level': True,
-          'date_posted': True, 'total_donations': True, '_id': False}
+          'date_posted': True, 'total_donations': True, '_id': False, 'grade_level': True}
 
 
 @app.route("/")
