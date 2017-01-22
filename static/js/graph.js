@@ -62,7 +62,7 @@ function makeGraphs(error, projectsJson) {
     //Charts
     var timeChart = dc.lineChart("#time-chart");
     var resourceTypeChart = dc.rowChart("#resource-type-row-chart");
-    var povertyLevelChart = dc.rowChart("#poverty-level-row-chart");
+    var povertyLevelChart = dc.pieChart("#poverty-level-chart");
     var numberProjectsND = dc.numberDisplay("#number-projects-nd");
     var totalDonationsND = dc.numberDisplay("#total-donations-nd");
     var gradeLevelChart = dc.pieChart("#grade-chart");
@@ -112,11 +112,12 @@ function makeGraphs(error, projectsJson) {
 
     povertyLevelChart
         .ordinalColors(["#79CED7", "#66AFB2", "#C96A23", "#D3D1C5", "#F5821F"])
-        .width(300)
-        .height(250)
-        .dimension(povertyLevelDim)
-        .group(numProjectsByPovertyLevel)
-        .xAxis().ticks(4);
+        .height(220)
+        .radius(90)
+        .innerRadius(40)
+        .transitionDuration(1500)
+        .dimension(gradeLevel)
+        .group(numProjectsByPovertyLevel);
 
     gradeLevelChart
         .ordinalColors(["#79CED7", "#66AFB2", "#C96A23", "#D3D1C5", "#F5821F"])
