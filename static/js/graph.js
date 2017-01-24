@@ -127,19 +127,25 @@ function makeGraphs(error, projectsJson) {
         .ordinalColors(["#79CED7", "#66AFB2", "#C96A23", "#D3D1C5", "#F5821F"])
         .height(220)
         .radius(90)
-        .innerRadius(40)
+        .innerRadius(0)
         .transitionDuration(1500)
         .dimension(gradeLevel)
-        .group(numProjectsByPovertyLevel);
+        .group(numProjectsByPovertyLevel)
+        .legend(dc.legend().x(50).y(10).itemHeight(13).gap(5));  // adds a legend
+        //.cx(numerical value) use to move doughnut on x axis to clear legend
+        //.cy(num)
 
     gradeLevelChart
         .ordinalColors(["#79CED7", "#66AFB2", "#C96A23", "#D3D1C5", "#F5821F"])
         .height(220)
         .radius(90)
-        .innerRadius(40)
+        .innerRadius(0)
         .transitionDuration(1500)
         .dimension(gradeLevel)
-        .group(numProjectsByGradeLevel);
+        .group(numProjectsByGradeLevel)
+        .legend(dc.legend().x(50).y(10).itemHeight(13).gap(5));  // adds a legend
+        //.cx(numerical value) use to move doughnut on x axis to clear legend
+        //.cy(num)
 
     dc.renderAll();
 
