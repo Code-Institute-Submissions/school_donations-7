@@ -9,17 +9,40 @@
     <link rel="stylesheet" href="{{ url_for ('static',filename='lib/css/introjs.css') }}">
 </head>
 <body class="application">
-
+<!--
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="./">School Donations Dashboard</a>
+            <p class="navbar-text">School Donations Dashboard</p>
+            <a class="navbar-brand navbar-right" href="./">Reset Data</a>
             <a class="navbar-brand" autofocus href="#" onclick="javascript:introJs().start();">
                 Start Tour!
             </a>
         </div>
     </div>
 </div>
+-->
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <p class="navbar-text" id="navsdd">School Donations Dashboard</p>
+
+  </div>
+
+  <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav navbar-right">
+        <li><a autofocus href="#" onclick="javascript:introJs().start();">
+                Start Tour!</a></li>
+        <li><a href="./">Reset Data</a></li>
+    </ul>
+  </div>
+</nav>
+
 
 <div id="outer" class="container-fluid">
 

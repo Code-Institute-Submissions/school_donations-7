@@ -127,7 +127,7 @@ function makeGraphs(error, projectsJson) {
         .ordinalColors(["#79CED7", "#66AFB2", "#C96A23", "#D3D1C5", "#F5821F"])
         .height(220)
         .radius(90)
-        .innerRadius(0)
+        .innerRadius(0)  // changed from 40 to make standard pie chart
         .transitionDuration(1500)
         .dimension(gradeLevel)
         .group(numProjectsByPovertyLevel)
@@ -139,7 +139,7 @@ function makeGraphs(error, projectsJson) {
         .ordinalColors(["#79CED7", "#66AFB2", "#C96A23", "#D3D1C5", "#F5821F"])
         .height(220)
         .radius(90)
-        .innerRadius(0)
+        .innerRadius(0)  // changed from 40 to make standard pie chart
         .transitionDuration(1500)
         .dimension(gradeLevel)
         .group(numProjectsByGradeLevel)
