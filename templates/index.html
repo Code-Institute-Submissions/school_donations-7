@@ -9,21 +9,9 @@
     <link rel="stylesheet" href="{{ url_for ('static',filename='lib/css/introjs.css') }}">
 </head>
 <body class="application">
-<!--
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <p class="navbar-text">School Donations Dashboard</p>
-            <a class="navbar-brand navbar-right" href="./">Reset Data</a>
-            <a class="navbar-brand" autofocus href="#" onclick="javascript:introJs().start();">
-                Start Tour!
-            </a>
-        </div>
-    </div>
-</div>
--->
 
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<!--Navbar-->
+<nav class="navbar navbar-inverse navbar-fixed-top container" role="navigation">  <!-- container class added to indent navbar-->
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
       <span class="icon-bar"></span>
@@ -42,9 +30,95 @@
     </ul>
   </div>
 </nav>
+<!--/Navbar-->
 
 
-<div id="outer" class="container-fluid">
+<div id="outer" class="container">
+
+    <!--Top row with numerical text data-->
+    <div class="row">
+
+        <!-- menu select -->
+        <div class="col-sm-2 row1">
+            <div class="chart-wrapper" data-step=" 5 " data-intro=" The description that you want"
+                 style="font-weight: normal" data-position="right">
+                <div class="chart-title">
+                    Donation State
+                </div>
+                <div class="chart-stage">
+                    <div id="menu-select"></div>
+                </div>
+            </div>
+        </div>
+        <!-- menu select -->
+
+        <!-- Metric 1 -->
+        <div class="col-sm-2 row1">
+            <div class="chart-wrapper" data-step=" 6 " data-intro=" The description that you want"
+                 style="font-weight: normal" data-position="right">
+                <div class="chart-title">
+                    Number of Projects
+                </div>
+                <div class="chart-stage" style=" background: #33CC99;
+                    /*width: 200px;*/
+                    position: relative;
+                    /*height: 60px;*/
+                    font-size: 29px;
+                    color: white;
+                    vertical-align: middle;
+                    text-align: center;
+                    padding-top: 12px;
+                    padding-bottom: 0px;">
+                    <div id="number-projects-nd"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Metric 1 -->
+
+        <!-- Metric 2 -->
+        <div class="col-sm-2 row1">
+            <div class="chart-wrapper" data-step=" 7 " data-intro=" The description that you want"
+                 style="font-weight: normal" data-position="right">
+                <div class="chart-title">
+                    Total Donations (USD)
+                </div>
+                <div class="chart-stage">
+                    <div id="total-donations-nd"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Metric 2 -->
+
+        <!-- Metric 3 -->
+        <div class="col-sm-2 row1">
+            <div class="chart-wrapper" data-step=" 9 " data-intro=" The description that you want"
+                 style="font-weight: normal" data-position="right">
+                <div class="chart-title">
+                    Schools Assisted
+                </div>
+                <div class="chart-stage">
+                    <div id="schools-assisted-nd"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Metric 3 -->
+
+        <!-- Metric 4 -->
+        <div class="col-sm-2 row1">
+            <div class="chart-wrapper" data-step=" 10 " data-intro=" The description that you want"
+                 style="font-weight: normal" data-position="right">
+                <div class="chart-title">
+                    Students Reached
+                </div>
+                <div class="chart-stage">
+                    <div id="students-reached-nd"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Metric 4 -->
+
+    </div><!-- /Top row with numerical text data-->
+
 
     <div class="row">
 
@@ -79,7 +153,7 @@
                 </div>
                 <!-- Resources -->
 
-                <!-- Subject -->
+                <!-- Primary Focus Area -->
                 <div class="col-sm-6">
                     <div class="chart-wrapper" data-step=" 3 " data-intro=" The description that you want"
                          style="font-weight: normal" data-position="right">
@@ -91,27 +165,13 @@
                         </div>
                     </div>
                 </div>
-                <!-- Subject -->
-
-                <!-- Grade Pie -->
-                <div class="col-sm-6">
-                    <div class="chart-wrapper" data-step=" 8 " data-intro=" The description that you want"
-                         style="font-weight: normal" data-position="right">
-                        <div class="chart-title">
-                            Grade Level
-                        </div>
-                        <div class="chart-stage">
-                            <div id="grade-chart"></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Grade Pie -->
+                <!-- Primary Focus Area -->
 
             </div>
         </div>
 
         <!-- Poverty -->
-        <div class="col-sm-3">
+        <div class="col-sm-4">
             <div class="chart-wrapper" data-step=" 4 " data-intro=" The description that you want"
                  style="font-weight: normal" data-position="right">
                 <div class="chart-title">
@@ -124,84 +184,20 @@
         </div>
         <!-- Poverty -->
 
-        <!-- menu select -->
-        <div class="col-sm-2">
-            <div class="chart-wrapper" data-step=" 5 " data-intro=" The description that you want"
+        <!-- Grade Pie -->
+        <div class="col-sm-4">
+            <div class="chart-wrapper" data-step=" 8 " data-intro=" The description that you want"
                  style="font-weight: normal" data-position="right">
                 <div class="chart-title">
-                    Donation State
+                    Grade Level
                 </div>
                 <div class="chart-stage">
-                    <div id="menu-select"></div>
+                    <div id="grade-chart"></div>
                 </div>
             </div>
         </div>
-        <!-- menu select -->
+        <!-- Grade Pie -->
 
-        <!-- Metric 1 -->
-        <div class="col-sm-2">
-            <div class="chart-wrapper" data-step=" 6 " data-intro=" The description that you want"
-                 style="font-weight: normal" data-position="right">
-                <div class="chart-title">
-                    Number of Projects
-                </div>
-                <div class="chart-stage" style=" background: #33CC99;
-                    /*width: 200px;*/
-                    position: relative;
-                    /*height: 60px;*/
-                    font-size: 29px;
-                    color: white;
-                    vertical-align: middle;
-                    text-align: center;
-                    padding-top: 12px;
-                    padding-bottom: 0px;">
-                    <div id="number-projects-nd"></div>
-                </div>
-            </div>
-        </div>
-        <!-- Metric 1 -->
-
-        <!-- Metric 2 -->
-        <div class="col-sm-2">
-            <div class="chart-wrapper" data-step=" 7 " data-intro=" The description that you want"
-                 style="font-weight: normal" data-position="right">
-                <div class="chart-title">
-                    Total Donations (USD)
-                </div>
-                <div class="chart-stage">
-                    <div id="total-donations-nd"></div>
-                </div>
-            </div>
-        </div>
-        <!-- Metric 2 -->
-
-        <!-- Metric 3 -->
-        <div class="col-sm-2">
-            <div class="chart-wrapper" data-step=" 9 " data-intro=" The description that you want"
-                 style="font-weight: normal" data-position="right">
-                <div class="chart-title">
-                    Schools Assisted
-                </div>
-                <div class="chart-stage">
-                    <div id="schools-assisted-nd"></div>
-                </div>
-            </div>
-        </div>
-        <!-- Metric 3 -->
-
-        <!-- Metric 4 -->
-        <div class="col-sm-2">
-            <div class="chart-wrapper" data-step=" 10 " data-intro=" The description that you want"
-                 style="font-weight: normal" data-position="right">
-                <div class="chart-title">
-                    Students Reached
-                </div>
-                <div class="chart-stage">
-                    <div id="students-reached-nd"></div>
-                </div>
-            </div>
-        </div>
-        <!-- Metric 4 -->
     </div>
 
 </div>

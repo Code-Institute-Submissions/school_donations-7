@@ -61,3 +61,17 @@
 li > a {
     margin-right: 20px;
 }
+
+/* Add this to parent div to allow use of flexbox on child elements*/
+.row {
+    display:flex;
+}
+
+/* To space out the divs in the top data row - doesn't work*/
+.row1 {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;  /* this is the important part*/
+    align-items: stretch;
+    align-content: flex-start;
+}
