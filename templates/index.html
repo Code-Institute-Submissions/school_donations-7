@@ -39,8 +39,12 @@
     <div class="row">
 
         <!-- menu select -->
-        <div class="col-sm-2 row1">
-            <div class="chart-wrapper" data-step=" 5 " data-intro=" The description that you want"
+        <div class="col-xs-4 col-md-2 row1">
+            <div class="chart-wrapper" data-step=" 1 " data-intro="This is a dashboard created from data made available by DonorsChoose.org: a US based nonprofit organization that allows individuals to donate money directly to public school classroom projects.
+                    <br><br>You have elected to be given a tour of the dashboard which will explain each section in turn.
+                    <br><br>By default, the dashboard visualisations utilise the entire dataset obtained from DonorsChoose.org. However, if you select an individual state in the dropdown menu highlighted here, the data visualisations will update to reflect data for just the state selected. To return to the entire US, select ‘Select All’ on the dropdown menu or, alternatively, click on ‘Reset Data’ in the top right corner.
+                    <br><br>‘Reset Data’ can be used at any time to return the dashboard to its default state.
+                    "
                  style="font-weight: normal" data-position="right">
                 <div class="chart-title">
                     Donation State
@@ -53,18 +57,18 @@
         <!-- menu select -->
 
         <!-- Metric 1 -->
-        <div class="col-sm-2 row1">
-            <div class="chart-wrapper" data-step=" 6 " data-intro=" The description that you want"
+        <div class="col-xs-4 col-md-2 row1">
+            <div class="chart-wrapper" data-step=" 2 " data-intro="From the dataset, we can see the number of projects supported,…"
                  style="font-weight: normal" data-position="right">
                 <div class="chart-title">
                     Number of Projects
                 </div>
-                <div class="chart-stage" style=" background: #33CC99;
+                <div class="chart-stage" style="
                     /*width: 200px;*/
                     position: relative;
                     /*height: 60px;*/
                     font-size: 29px;
-                    color: white;
+                    color: black;
                     vertical-align: middle;
                     text-align: center;
                     padding-top: 12px;
@@ -76,8 +80,8 @@
         <!-- Metric 1 -->
 
         <!-- Metric 2 -->
-        <div class="col-sm-2 row1">
-            <div class="chart-wrapper" data-step=" 7 " data-intro=" The description that you want"
+        <div class="col-xs-4 col-md-2 row1">
+            <div class="chart-wrapper" data-step=" 3 " data-intro="…the total funds raised,…"
                  style="font-weight: normal" data-position="right">
                 <div class="chart-title">
                     Total Donations (USD)
@@ -90,9 +94,9 @@
         <!-- Metric 2 -->
 
         <!-- Metric 3 -->
-        <div class="col-sm-2 row1">
-            <div class="chart-wrapper" data-step=" 9 " data-intro=" The description that you want"
-                 style="font-weight: normal" data-position="right">
+        <div class="col-xs-4 col-xs-offset-4 col-md-2 row1">
+            <div class="chart-wrapper" data-step=" 4 " data-intro="…the number of schools assisted…"
+                 style="font-weight: normal" data-position="left">
                 <div class="chart-title">
                     Schools Assisted
                 </div>
@@ -104,9 +108,9 @@
         <!-- Metric 3 -->
 
         <!-- Metric 4 -->
-        <div class="col-sm-2 row1">
-            <div class="chart-wrapper" data-step=" 10 " data-intro=" The description that you want"
-                 style="font-weight: normal" data-position="right">
+        <div class="col-xs-4 col-xs-offset-4 col-md-2 row1">
+            <div class="chart-wrapper" data-step=" 5 " data-intro="…and the number of students reached."
+                 style="font-weight: normal" data-position="left">
                 <div class="chart-title">
                     Students Reached
                 </div>
@@ -122,12 +126,16 @@
 
     <div class="row">
 
-        <div class="col-sm-8">
+        <div class="col-md-8">
             <div class="row">
 
                 <!-- Time Chart -->
-                <div class="col-sm-12">
-                    <div class="chart-wrapper" data-step=" 1 " data-intro=" The description that you want"
+                <div class="col-md-12">
+                    <div class="chart-wrapper" data-step=" 6 " data-intro="This time graph illustrates the number of projects supported over a certain period of time.
+                            <br><br>If you wish to select a period of time within that shown, click on the graph. Two selectors appear; though they look like one, there is actually a left hand one and a right hand one next to each other. Click and drag the selectors so that the shaded area between them covers the desired period.
+                            <br><br>If you do select a period, you will notice that all the other data visualisations are updated to reflect the selection you have made. This is true for all the selections you make by clicking on a visualisation.
+                            <br><br>Again, if you wish to remove all selections made, just click on ‘Reset Data’.
+                            "
                          style="font-weight: normal" data-position="right">
                         <div class="chart-title">
                             Number of Projects
@@ -139,23 +147,11 @@
                 </div>
                 <!-- Time Chart -->
 
-                <!-- Resources -->
-                <div class="col-sm-6">
-                    <div class="chart-wrapper" data-step=" 2 " data-intro=" The description that you want"
-                         style="font-weight: normal" data-position="right">
-                        <div class="chart-title">
-                            Type of Resource
-                        </div>
-                        <div class="chart-stage">
-                            <div id="resource-type-row-chart"></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Resources -->
-
                 <!-- Primary Focus Area -->
-                <div class="col-sm-6">
-                    <div class="chart-wrapper" data-step=" 3 " data-intro=" The description that you want"
+                <div class="col-xs-12 col-sm-6">
+                    <div class="chart-wrapper" data-step=" 9 " data-intro="This bar chart illustrates the number of projects aimed at differing levels of poverty.
+                            <br><br>You can select a specific category of poverty by clicking on it. All the other visualisations will be updated to reflect the selection you have made. To remove a selection, click on the same section again, or a different section to make a new selection.
+                            "
                          style="font-weight: normal" data-position="right">
                         <div class="chart-title">
                             Primary Focus Area
@@ -167,13 +163,31 @@
                 </div>
                 <!-- Primary Focus Area -->
 
+                <!-- Resources -->
+                <div class="col-xs-12 col-sm-6">
+                    <div class="chart-wrapper" data-step=" 10 " data-intro="This bar chart illustrates the different types of resource acquired by the projects.
+                            <br><br>You can select a specific type of resource by clicking on it. All the other visualisations will be updated to reflect the selection you have made. To remove a selection, click on the same section again, or a different section to make a new selection.
+                            "
+                         style="font-weight: normal" data-position="right">
+                        <div class="chart-title">
+                            Type of Resource
+                        </div>
+                        <div class="chart-stage">
+                            <div id="resource-type-row-chart"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Resources -->
+
             </div>
         </div>
 
         <!-- Poverty -->
-        <div class="col-sm-4">
-            <div class="chart-wrapper" data-step=" 4 " data-intro=" The description that you want"
-                 style="font-weight: normal" data-position="right">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="chart-wrapper" data-step=" 7 " data-intro="This pie chart illustrates the number of projects aimed at differing levels of poverty.
+                    <br><br>You can select a specific category of poverty by clicking on it. All the other visualisations will be updated to reflect the selection you have made. To remove a selection, click on the same section again, or a different section to make a new selection.
+                    "
+                 style="font-weight: normal" data-position="left">
                 <div class="chart-title">
                     Poverty Level
                 </div>
@@ -185,9 +199,11 @@
         <!-- Poverty -->
 
         <!-- Grade Pie -->
-        <div class="col-sm-4">
-            <div class="chart-wrapper" data-step=" 8 " data-intro=" The description that you want"
-                 style="font-weight: normal" data-position="right">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="chart-wrapper" data-step=" 8 " data-intro="This pie chart illustrates the number of projects aimed at differing grade levels.
+                    <br><br>You can select a specific category of grade by clicking on it. All the other visualisations will be updated to reflect the selection you have made. To remove a selection, click on the same section again, or a different section to make a new selection.
+                    "
+                 style="font-weight: normal" data-position="left">
                 <div class="chart-title">
                     Grade Level
                 </div>
