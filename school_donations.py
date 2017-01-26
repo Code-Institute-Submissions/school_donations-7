@@ -11,7 +11,7 @@ DBS_NAME = 'donorsUSA'
 COLLECTION_NAME = 'projects'
 FIELDS = {'school_state': True, 'resource_type': True, 'poverty_level': True,
           'date_posted': True, 'total_donations': True, '_id': False, 'grade_level': True,
-          'primary_focus_area': True}
+          'primary_focus_area': True, '_schoolid': True, 'students_reached': True}
 
 
 @app.route("/")

@@ -1,4 +1,4 @@
-queue()
+queue()  // Used when dealing with data from multiple APIs. Not needed here but good practice
     .defer(d3.json, "/donorsUS/projects")
     .await(makeGraphs);
 
@@ -10,7 +10,8 @@ function makeGraphs(error, projectsJson) {
     donorsUSProjects.forEach(function (d) {
         d["date_posted"] = dateFormat.parse(d["date_posted"]);
         d["date_posted"].setDate(1);
-        d["total_donations"] = +d["total_donations"];
+        d["total_donations"] = +d["total_donations"];  // The + sets the datatype as a number
+        d["students_reached"] = +d["students_reached"];  // NEW
     });
 
     //Create a Crossfilter instance
@@ -38,6 +39,9 @@ function makeGraphs(error, projectsJson) {
     var gradeLevel = ndx.dimension(function (d) {
         return d["grade_level"];
     });
+    var studentsReachedDim = ndx.dimension(function (d) {  // NEW
+        return d["students_reached"];
+    });
 
 
     //Calculate metrics
@@ -49,12 +53,18 @@ function makeGraphs(error, projectsJson) {
     var totalDonationsByState = stateDim.group().reduceSum(function (d) {
         return d["total_donations"];
     });
+    var studentsReachedByState = stateDim.group().reduceSum(function (d) {  // NEW
+        return d["students_reached"];
+    });
     var stateGroup = stateDim.group();
 
 
     var all = ndx.groupAll();
     var totalDonations = ndx.groupAll().reduceSum(function (d) {
         return d["total_donations"];
+    });
+    var studentsReached = ndx.groupAll().reduceSum(function (d) {  // NEW
+        return d["students_reached"];
     });
 
     var max_state = totalDonationsByState.top(1)[0].value;
@@ -71,6 +81,7 @@ function makeGraphs(error, projectsJson) {
     var numberProjectsND = dc.numberDisplay("#number-projects-nd");
     var totalDonationsND = dc.numberDisplay("#total-donations-nd");
     var gradeLevelChart = dc.pieChart("#grade-chart");
+    var studentsReachedND = dc.numberDisplay("#students-reached-nd");  // NEW
 
 
     selectField = dc.selectMenu('#menu-select')
@@ -90,6 +101,14 @@ function makeGraphs(error, projectsJson) {
             return d;
         })
         .group(totalDonations)
+        .formatNumber(d3.format(".3s"));
+
+    studentsReachedND  // NEW
+        .formatNumber(d3.format("d"))
+        .valueAccessor(function (d) {
+            return d;
+        })
+        .group(studentsReached)
         .formatNumber(d3.format(".3s"));
 
     timeChart
