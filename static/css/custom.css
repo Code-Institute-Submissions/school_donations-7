@@ -10,6 +10,10 @@
     font-size: 60px;
 }
 
+#schools-assisted-nd {
+    font-size: 60px;
+}
+
 .dc-chart g.row text {
     fill: black;
     font-size: 12px;
@@ -75,3 +79,7 @@ li > a {
     align-content: flex-start;
 }
 */
+
+.reset_chart {
+    float: right;
+}

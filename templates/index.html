@@ -139,6 +139,7 @@
                          style="font-weight: normal" data-position="right">
                         <div class="chart-title">
                             Number of Projects
+                            <a class="reset_chart" href="javascript:time-chart.filterAll();dc.redrawAll();">reset</a>
                         </div>
                         <div class="chart-stage">
                             <div id="time-chart"></div>
@@ -155,6 +156,7 @@
                          style="font-weight: normal" data-position="right">
                         <div class="chart-title">
                             Primary Focus Area
+                            <a class="reset_chart" href="javascript:primary-area-row-chart.filterAll();dc.redrawAll();">reset</a>
                         </div>
                         <div class="chart-stage">
                             <div id="primary-area-row-chart"></div>
@@ -171,6 +173,7 @@
                          style="font-weight: normal" data-position="right">
                         <div class="chart-title">
                             Type of Resource
+                            <a class="reset_chart" href="javascript:resource-type-row-chart.filterAll();dc.redrawAll();">reset</a>
                         </div>
                         <div class="chart-stage">
                             <div id="resource-type-row-chart"></div>
@@ -190,6 +193,7 @@
                  style="font-weight: normal" data-position="left">
                 <div class="chart-title">
                     Poverty Level
+                    <a class="reset_chart" href="javascript:poverty-level-chart.filterAll();dc.redrawAll();">reset</a>
                 </div>
                 <div class="chart-stage">
                     <div id="poverty-level-chart"></div>
@@ -206,6 +210,7 @@
                  style="font-weight: normal" data-position="left">
                 <div class="chart-title">
                     Grade Level
+                    <a class="reset_chart" href="javascript:grade-chart.filterAll();dc.redrawAll();">reset</a>
                 </div>
                 <div class="chart-stage">
                     <div id="grade-chart"></div>
@@ -230,6 +235,7 @@
 <script src="{{ url_for ('static',filename='lib/js/d3.js') }}"></script>
 <script src="{{ url_for ('static',filename='lib/js/dc.js') }}"></script>
 <script src="{{ url_for ('static',filename='lib/js/queue.js') }}"></script>
+<script src="{{ url_for ('static',filename='lib/js/reductio.min.js') }}"></script>  <!-- library for generating Crossfilter reduce functions -->
 
 
 <script src="{{ url_for ('static',filename='lib/js/keen.min.js') }}"></script>

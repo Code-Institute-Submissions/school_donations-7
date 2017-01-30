@@ -11,7 +11,7 @@ function makeGraphs(error, projectsJson) {
         d["date_posted"] = dateFormat.parse(d["date_posted"]);
         d["date_posted"].setDate(1);
         d["total_donations"] = +d["total_donations"];  // The + sets the datatype as a number
-        d["students_reached"] = +d["students_reached"];  // NEW
+        d["students_reached"] = +d["students_reached"];
     });
 
     //Create a Crossfilter instance
@@ -39,8 +39,11 @@ function makeGraphs(error, projectsJson) {
     var gradeLevel = ndx.dimension(function (d) {
         return d["grade_level"];
     });
-    var studentsReachedDim = ndx.dimension(function (d) {  // NEW
+    var studentsReachedDim = ndx.dimension(function (d) {
         return d["students_reached"];
+    });
+    var schoolsAssistedDim = ndx.dimension(function (d) {  // NEW
+        return d["_schoolid"];
     });
 
 
@@ -53,9 +56,6 @@ function makeGraphs(error, projectsJson) {
     var totalDonationsByState = stateDim.group().reduceSum(function (d) {
         return d["total_donations"];
     });
-    var studentsReachedByState = stateDim.group().reduceSum(function (d) {  // NEW
-        return d["students_reached"];
-    });
     var stateGroup = stateDim.group();
 
 
@@ -63,14 +63,21 @@ function makeGraphs(error, projectsJson) {
     var totalDonations = ndx.groupAll().reduceSum(function (d) {
         return d["total_donations"];
     });
-    var studentsReached = ndx.groupAll().reduceSum(function (d) {  // NEW
+    var studentsReached = ndx.groupAll().reduceSum(function (d) {
         return d["students_reached"];
     });
+    var schoolsAssisted = {  // NEW
+        value: function() {
+            return group.all().filter(function (d) {
+                return d["_schoolid"];
+            }).length;
+        }
+    };
 
     var max_state = totalDonationsByState.top(1)[0].value;
 
     //Define values (to be used in charts)
-    var minDate = dateDim.bottom(1)[0]["date_posted"];
+    var minDate = dateDim.bottom(1)[0]["date_posted"];  // To calculate the x axis range
     var maxDate = dateDim.top(1)[0]["date_posted"];
 
     //Charts
@@ -81,7 +88,8 @@ function makeGraphs(error, projectsJson) {
     var numberProjectsND = dc.numberDisplay("#number-projects-nd");
     var totalDonationsND = dc.numberDisplay("#total-donations-nd");
     var gradeLevelChart = dc.pieChart("#grade-chart");
-    var studentsReachedND = dc.numberDisplay("#students-reached-nd");  // NEW
+    var studentsReachedND = dc.numberDisplay("#students-reached-nd");
+    var schoolsAssistedND = dc.numberDisplay("#schools-assisted-nd");  // NEW
 
 
     selectField = dc.selectMenu('#menu-select')
@@ -103,7 +111,15 @@ function makeGraphs(error, projectsJson) {
         .group(totalDonations)
         .formatNumber(d3.format(".3s"));
 
-    studentsReachedND  // NEW
+    schoolsAssistedND  // NEW
+        .formatNumber(d3.format("d"))
+        .valueAccessor(function (d) {
+            return d;
+        })
+        .group(schoolsAssisted)
+        .formatNumber(d3.format(".3s"));
+
+    studentsReachedND
         .formatNumber(d3.format("d"))
         .valueAccessor(function (d) {
             return d;
