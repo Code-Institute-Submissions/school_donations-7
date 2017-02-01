@@ -46,7 +46,7 @@
 }
 
 .dc-select-menu {
-    background: #33CC99;
+    background: orangered;
     width: 120%;
     border: none;
     position: relative;
@@ -81,4 +81,12 @@ li > a {
 .section {
     border: 2px solid lightgray;
     border-radius: 5px;
+}
+
+.hidden_group {
+    display: none;
+}
+
+.hider_group {
+    color: blue;
 }
