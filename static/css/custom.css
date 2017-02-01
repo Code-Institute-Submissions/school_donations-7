@@ -58,12 +58,6 @@
     padding-top: 4px;
     padding-bottom: 0px;
 }
-
-/* Colour the School Donations Dashboard text in navbar white */
-#navsdd {
-    color: #fbfbfb;
-}
-
 /* Slightly indent the navbar buttons from rhs */
 li > a {
     margin-right: 20px;
@@ -82,4 +76,9 @@ li > a {
 
 .reset_chart {
     float: right;
+}
+
+.section {
+    border: 2px solid lightgray;
+    border-radius: 5px;
 }

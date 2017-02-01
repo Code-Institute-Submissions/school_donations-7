@@ -5,15 +5,15 @@ queue()  // Used when dealing with data from multiple APIs. Not needed here but 
 
 // Charts
 // 'var' prefix removed and code moved into global scope
-timeChart = dc.lineChart("#time-chart");
-resourceTypeChart = dc.rowChart("#resource-type-row-chart");
-primaryAreaChart = dc.rowChart("#primary-area-row-chart");
-povertyLevelChart = dc.pieChart("#poverty-level-chart");
-numberProjectsND = dc.numberDisplay("#number-projects-nd");
-totalDonationsND = dc.numberDisplay("#total-donations-nd");
-gradeLevelChart = dc.pieChart("#grade-chart");
-studentsReachedND = dc.numberDisplay("#students-reached-nd");
-//var schoolsAssistedND = dc.numberDisplay("#schools-assisted-nd");
+var timeChart = dc.lineChart("#time-chart");
+var resourceTypeChart = dc.rowChart("#resource-type-row-chart");
+var primaryAreaChart = dc.rowChart("#primary-area-row-chart");
+var povertyLevelChart = dc.pieChart("#poverty-level-chart");
+var numberProjectsND = dc.numberDisplay("#number-projects-nd");
+var totalDonationsND = dc.numberDisplay("#total-donations-nd");
+var gradeLevelChart = dc.pieChart("#grade-chart");
+var studentsReachedND = dc.numberDisplay("#students-reached-nd");
+// schoolsAssistedND = dc.numberDisplay("#schools-assisted-nd");
 
 function makeGraphs(error, projectsJson) {
 
@@ -55,9 +55,9 @@ function makeGraphs(error, projectsJson) {
     var studentsReachedDim = ndx.dimension(function (d) {
         return d["students_reached"];
     });
-    /*var schoolsAssistedDim = ndx.dimension(function (d) {
-        return d["_schoolid"];
-    });*/
+    // var schoolsAssistedDim = ndx.dimension(function (d) {
+    //     return d["_schoolid"];
+    // });
 
 
     //Calculate metrics
@@ -79,13 +79,13 @@ function makeGraphs(error, projectsJson) {
     var studentsReached = ndx.groupAll().reduceSum(function (d) {
         return d["students_reached"];
     });
-    /*var schoolsAssisted = {  // NEW
-        value: function() {
-            return group.all().filter(function (d) {
-                return d["_schoolid"];
-            }).length;
-        }
-    };*/
+    // var schoolsAssisted = {  // Code doesn't work - needs addressing. All other schoolsAssisted code is commented-out
+    //     value: function() {
+    //         return ndx.all().filter(function (d) {
+    //             return d["_schoolid"];
+    //         }).length;
+    //     }
+    // };
 
     var max_state = totalDonationsByState.top(1)[0].value;
 
@@ -116,13 +116,13 @@ function makeGraphs(error, projectsJson) {
         .group(totalDonations)
         .formatNumber(d3.format(".3s"));
 
-    /*schoolsAssistedND
-        .formatNumber(d3.format("d"))
-        .valueAccessor(function (d) {
-            return d;
-        })
-        .group(schoolsAssisted)
-        .formatNumber(d3.format(".3s"));*/
+    // schoolsAssistedND
+    //     .formatNumber(d3.format("d"))
+    //     .valueAccessor(function (d) {
+    //         return d;
+    //     })
+    //     .group(schoolsAssisted)
+    //     .formatNumber(d3.format(".3s"));
 
     studentsReachedND
         .formatNumber(d3.format("d"))

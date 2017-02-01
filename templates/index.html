@@ -35,10 +35,39 @@
 
 <div id="outer" class="container">
 
+    <!--Opening text-->
+    <div class="row">
+        <div class="col-xs-12">
+            <p>This is an interactive dashboard created from data made available by <a href="https://www.donorschoose.org/">DonorsChoose.org</a>.</p>
+            <br>
+            <h4>Who is DonorsChoose.org?</h4>
+                <p>DonorsChoose.org is a US-based nonprofit organization that allows individuals to donate money directly to public school classroom projects. Public school teachers post classroom project requests on the website, allowing individuals and companies to browse through them and donate money directly to a project of their choice. The projects fund a variety of things, such as new classroom equipment, learning materials and school trips.</p>
+                <p>DonorsChoose.org was founded in 2000 by a history teacher working in a Bronx public high school. Since inception it has reached over 70% of public schools across the US, raising hundreds of millions of dollars in funding.</p>
+                <p>DonorsChoose.org has made its data available to the public for making discoveries and building applications.</p>
+            <br>
+            <h4>What is the purpose of this website?</h4>
+            <p>I am a graduate who benefitted from DonorsChoose.org’s funding whilst at high school. I have built this website to promote the good work that DonorsChoose.org does, and as a tool to allow people to look more closely at the projects supported.</p>
+            <br>
+            <h4>How do I use this website?</h4>
+                <p>The data provided by DonorsChoose.org has been used to build interactive visualisations that you can manipulate to show information that interests you. For instance, you can look at data from your home state, or for projects supporting your favourite subject, or both at the same time!<p>
+                <p>There are instructions written to help you manipulate the visualisations in order to filter the information you are looking for. Just click on the ‘Start Tour!’ button at the top of the page to begin!</p>
+        </div>
+    </div>
+    <!--Opening text-->
+
+    <hr>
+
     <!--Top row with numerical text data-->
     <div class="row">
+        <div class="col-xs-12">
+            <h4>Headline data</h4>
+                <p>The following visualisations show the headline numbers for the dataset selected. By default, the dataset is for the entire US but can be filtered to individual states using the Donation State drop-down menu</p>
+        </div>
+    </div>
 
-        <!-- menu select -->
+    <div class="row">
+
+        <!-- state select -->
         <div class="col-xs-4 col-md-2 row1">
             <div class="chart-wrapper" data-step=" 1 " data-intro="This is a dashboard created from data made available by DonorsChoose.org: a US based nonprofit organization that allows individuals to donate money directly to public school classroom projects.
                     <br><br>You have elected to be given a tour of the dashboard which will explain each section in turn.
@@ -54,7 +83,7 @@
                 </div>
             </div>
         </div>
-        <!-- menu select -->
+        <!state select -->
 
         <!-- Metric 1 -->
         <div class="col-xs-4 col-md-2 row1">
@@ -123,70 +152,87 @@
 
     </div><!-- /Top row with numerical text data-->
 
+    <hr>
+
+    <div class="row">
+        <!--time chart text-->
+        <div class="col-sm-12">
+            <h4>Projects over time</h4>
+                <p>This time chart displays the number of projects posted each month for the period covered by the dataset. You can narrow the time period and the other charts will update to only show data for the selected period.</p>
+        </div>
+        <!--time chart text-->
+    </div>
+
+    <div class="row">
+        <!-- Time Chart -->
+        <div class="col-md-12">
+            <div class="chart-wrapper" data-step=" 6 " data-intro="This time graph illustrates the number of projects supported over a certain period of time.
+                    <br><br>If you wish to select a period of time within that shown, click on the graph. Two selectors appear; though they look like one, there is actually a left hand one and a right hand one next to each other. Click and drag the selectors so that the shaded area between them covers the desired period.
+                    <br><br>If you do select a period, you will notice that all the other data visualisations are updated to reflect the selection you have made. This is true for all the selections you make by clicking on a visualisation.
+                    <br><br>If you wish to remove a selected time period, just click on 'reset' in the top right corner of the chart.
+                    "
+                 style="font-weight: normal" data-position="right">
+                <div class="chart-title">
+                    Number of Projects
+                    <a class="reset_chart" href="javascript:timeChart.filterAll();dc.redrawAll();">reset</a>
+                </div>
+                <div class="chart-stage">
+                    <div id="time-chart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Time Chart -->
+
+    <hr>
 
     <div class="row">
 
-        <div class="col-md-8">
-            <div class="row">
-
-                <!-- Time Chart -->
-                <div class="col-md-12">
-                    <div class="chart-wrapper" data-step=" 6 " data-intro="This time graph illustrates the number of projects supported over a certain period of time.
-                            <br><br>If you wish to select a period of time within that shown, click on the graph. Two selectors appear; though they look like one, there is actually a left hand one and a right hand one next to each other. Click and drag the selectors so that the shaded area between them covers the desired period.
-                            <br><br>If you do select a period, you will notice that all the other data visualisations are updated to reflect the selection you have made. This is true for all the selections you make by clicking on a visualisation.
-                            <br><br>If you wish to remove a selected time period, just click on 'reset' in the top right corner of the chart.
-                            "
-                         style="font-weight: normal" data-position="right">
-                        <div class="chart-title">
-                            Number of Projects
-                            <a class="reset_chart" href="javascript:timeChart.filterAll();dc.redrawAll();">reset</a>
-                        </div>
-                        <div class="chart-stage">
-                            <div id="time-chart"></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Time Chart -->
-
-                <!-- Primary Focus Area -->
-                <div class="col-xs-12 col-sm-6">
-                    <div class="chart-wrapper" data-step=" 9 " data-intro="This bar chart illustrates the number of projects aimed at differing levels of poverty.
-                            <br><br>Again, selections can be made by clicking on the chart and removed by clicking 'reset' or 'Reset Data'.
-                            "
-                         style="font-weight: normal" data-position="right">
-                        <div class="chart-title">
-                            Primary Focus Area
-                            <a class="reset_chart" href="javascript:primaryAreaChart.filterAll();dc.redrawAll();">reset</a>
-                        </div>
-                        <div class="chart-stage">
-                            <div id="primary-area-row-chart"></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Primary Focus Area -->
-
-                <!-- Resources -->
-                <div class="col-xs-12 col-sm-6">
-                    <div class="chart-wrapper" data-step=" 10 " data-intro="This bar chart illustrates the different types of resource acquired by the projects.
-                    <br><br>Again, selections can be made by clicking on the chart and removed by clicking 'reset' or 'Reset Data'.
-                            "
-                         style="font-weight: normal" data-position="right">
-                        <div class="chart-title">
-                            Type of Resource
-                            <a class="reset_chart" href="javascript:resourceTypeChart.filterAll();dc.redrawAll();">reset</a>
-                        </div>
-                        <div class="chart-stage">
-                            <div id="resource-type-row-chart"></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Resources -->
-
-            </div>
+        <div class="col-sm-12">
+            <h4>Project attributes</h4>
+                <p>The following four charts display different attributes of the projects selected. If you are interested in data for certain attributes, for instance you may wish to look at projects aimed at students in the most impoverished locations, you can select an attribute (or several) and the other charts are updated to show that data.</p>
         </div>
 
+    </div>
+
+    <div class="row">
+
+        <!-- Primary Focus Area -->
+        <div class="col-xs-12 col-sm-6 col-lg-3">
+            <div class="chart-wrapper" data-step=" 9 " data-intro="This bar chart illustrates the number of projects aimed at differing levels of poverty.
+                    <br><br>Again, selections can be made by clicking on the chart and removed by clicking 'reset' or 'Reset Data'.
+                    "
+                 style="font-weight: normal" data-position="right">
+                <div class="chart-title">
+                    Primary Focus Area
+                    <a class="reset_chart" href="javascript:primaryAreaChart.filterAll();dc.redrawAll();">reset</a>
+                </div>
+                <div class="chart-stage">
+                    <div id="primary-area-row-chart"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Primary Focus Area -->
+
+        <!-- Resources -->
+        <div class="col-xs-12 col-sm-6 col-lg-3">
+            <div class="chart-wrapper" data-step=" 10 " data-intro="This bar chart illustrates the different types of resource acquired by the projects.
+            <br><br>Again, selections can be made by clicking on the chart and removed by clicking 'reset' or 'Reset Data'.
+                    "
+                 style="font-weight: normal" data-position="right">
+                <div class="chart-title">
+                    Type of Resource
+                    <a class="reset_chart" href="javascript:resourceTypeChart.filterAll();dc.redrawAll();">reset</a>
+                </div>
+                <div class="chart-stage">
+                    <div id="resource-type-row-chart"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Resources -->
+
         <!-- Poverty -->
-        <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="col-xs-12 col-sm-6 col-lg-3">
             <div class="chart-wrapper" data-step=" 7 " data-intro="This pie chart illustrates the number of projects aimed at differing levels of poverty.
                     <br><br>You can select a specific category of poverty by clicking on that segment in the chart. All the other visualisations will be updated to reflect the selection you have made. To remove a selection from this chart, click on 'reset'.
                     <br><br>You can refine selections by making selections on numerous charts. For instance, you could select a level of poverty on the previous pie chart, and a certain grade on this chart, and the other visualisations will show data updated for both selections.
@@ -206,7 +252,7 @@
         <!-- Poverty -->
 
         <!-- Grade Pie -->
-        <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="col-xs-12 col-sm-6 col-lg-3">
             <div class="chart-wrapper" data-step=" 8 " data-intro="This pie chart illustrates the number of projects aimed at differing grade levels.
                     <br><br>Again, selections can be made by clicking on the chart and removed by clicking 'reset' or 'Reset Data'.
                     "
@@ -224,10 +270,10 @@
 
     </div>
 
-</div>
+    <hr>
+    <p class="small text-muted">Dashboard created by Jon Hill</p>
 
-<hr>
-<p class="small text-muted"> Data viz &#9829;</p>
+</div>
 
 
 
