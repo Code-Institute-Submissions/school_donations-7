@@ -133,8 +133,9 @@ function makeGraphs(error, projectsJson) {
         .formatNumber(d3.format(".3s"));
 
     timeChart
-        .ordinalColors(["#C96A23"])
-        .width(1200)
+        // .ordinalColors(["#C96A23"])
+        .ordinalColors(["#FF4500"])
+        .width(1150)
         .height(300)
         .margins({top: 30, right: 50, bottom: 30, left: 50})
         .dimension(dateDim)
@@ -143,6 +144,7 @@ function makeGraphs(error, projectsJson) {
         .transitionDuration(500)
         .x(d3.time.scale().domain([minDate, maxDate]))
         .elasticY(true)
+        .elasticX(true)
         .xAxisLabel("Year")
         .yAxis().ticks(6);
 
@@ -164,28 +166,48 @@ function makeGraphs(error, projectsJson) {
         .xAxis().ticks(4);
 
     povertyLevelChart
-        .ordinalColors(["#79CED7", "#66AFB2", "#C96A23", "#D3D1C5", "#F5821F"])
+        .ordinalColors(['#3182bd', '#6baed6', '#9ecae1', '#c6dbef', '#dadaeb'])
         .height(220)
         .radius(90)
         .innerRadius(0)  // changed from 40 to make standard pie chart
         .transitionDuration(1500)
         .dimension(gradeLevel)
         .group(numProjectsByPovertyLevel)
-        .legend(dc.legend().x(50).y(10).itemHeight(13).gap(5));  // adds a legend
+        .legend(dc.legend().x(10).y(10).itemHeight(13).gap(5))  // adds a legend
         //.cx(numerical value) use to move doughnut on x axis to clear legend
         //.cy(num)
+        .label(function (d) {  // to display percentage rather than d.key
+                if (gradeLevelChart.hasFilter() && !gradeLevelChart.hasFilter(d.key)) {
+                    return '0%';
+                }
+                // var label = d.key;
+                if (all.value()) {
+                    var label = Math.floor(d.value / all.value() * 100) + '%';
+                }
+                return label;
+            });
 
     gradeLevelChart
-        .ordinalColors(["#79CED7", "#66AFB2", "#C96A23", "#D3D1C5", "#F5821F"])
+        .ordinalColors(['#3182bd', '#6baed6', '#9ecae1', '#c6dbef', '#dadaeb'])
         .height(220)
         .radius(90)
         .innerRadius(0)  // changed from 40 to make standard pie chart
         .transitionDuration(1500)
         .dimension(gradeLevel)
         .group(numProjectsByGradeLevel)
-        .legend(dc.legend().x(50).y(10).itemHeight(13).gap(5));  // adds a legend
+        .legend(dc.legend().x(10).y(10).itemHeight(13).gap(5))  // adds a legend
         //.cx(numerical value) use to move doughnut on x axis to clear legend
         //.cy(num)
+        .label(function (d) {  // to display percentage rather than d.key
+            if (gradeLevelChart.hasFilter() && !gradeLevelChart.hasFilter(d.key)) {
+                return '0%';
+            }
+            // var label = d.key;
+            if (all.value()) {
+                var label = Math.floor(d.value / all.value() * 100) + '%';
+            }
+            return label;
+        });
 
     dc.renderAll();
 

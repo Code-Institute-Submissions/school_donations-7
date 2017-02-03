@@ -26,7 +26,7 @@
     <ul class="nav navbar-nav navbar-right">
         <li><a autofocus href="#" onclick="javascript:introJs().start();">
                 Start Tour!</a></li>
-        <li><a href="javascript:timeChart.filterAll();primaryAreaChart.filterAll();resourceTypeChart.filterAll();povertyLevelChart.filterAll();gradeLevelChart.filterAll();dc.redrawAll();">Reset Data</a></li>
+        <li><a href="javascript:dc.filterAll();dc.redrawAll();">Reset Data</a></li>
     </ul>
   </div>
 </nav>
@@ -41,7 +41,6 @@
             <p>This is an interactive dashboard created from data made available by <a href="https://www.donorschoose.org/">DonorsChoose.org</a>.</p>
             <br>
             <p>Click on the following to expand:</p>
-            <br>
             <h4 class="hider_group" id="hider1">Who is DonorsChoose.org?</h4>
                 <div class="hidden_group" id="hidden1">
                     <p>DonorsChoose.org is a US-based nonprofit organization that allows individuals to donate money directly to public school classroom projects. Public school teachers post classroom project requests on the website, allowing individuals and companies to browse through them and donate money directly to a project of their choice. The projects fund a variety of things, such as new classroom equipment, learning materials and school trips.</p>
@@ -51,7 +50,7 @@
             <br>
             <h4 class="hider_group" id="hider2">What is the purpose of this website?</h4>
                 <div class="hidden_group" id="hidden2">
-                    <p>I am a graduate who benefitted from DonorsChoose.org’s funding whilst at high school. I have built this website to promote the good work that DonorsChoose.org does, and as a tool to allow people to look more closely at the projects supported.</p>
+                    <p>I am a graduate who benefited from DonorsChoose.org’s funding whilst at high school. I have built this website to promote the good work that DonorsChoose.org does, and as an interactive tool to allow people to look more closely at the projects supported.</p>
                 </div>
             <br>
             <h4 class="hider_group" id="hider3">How do I use this website?</h4>
@@ -267,7 +266,7 @@
     </div>
 
     <hr>
-    <p class="small text-muted">Dashboard created by Jon Hill</p>
+    <p class="small text-muted">Code Institute Stream 2 Dashboard Project</p>
 
 </div>
 

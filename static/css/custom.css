@@ -1,17 +1,17 @@
 #number-projects-nd {
-    font-size: 60px;
+    font-size: 40px;
 }
 
 #total-donations-nd {
-    font-size: 60px;
+    font-size: 40px;
 }
 
 #students-reached-nd {
-    font-size: 60px;
+    font-size: 40px;
 }
 
 #schools-assisted-nd {
-    font-size: 60px;
+    font-size: 40px;
 }
 
 .dc-chart g.row text {
@@ -19,31 +19,32 @@
     font-size: 12px;
 }
 
-#total-projects {
-    background: #33CC99;
-    width: 200px;
-    position: relative;
-    height: 60px;
-    font-size: 29px;
-    color: white;
-    vertical-align: middle;
-    text-align: center;
-    padding-top: 12px;
-    padding-bottom: 0px;
-}
+/*#total-projects {*/
+    /*background: #33CC99;*/
+    /*width: 200px;*/
+    /*position: relative;*/
+    /*height: 60px;*/
+    /*font-size: 29px;*/
+    /*color: white;*/
+    /*vertical-align: middle;*/
+    /*text-align: center;*/
+    /*padding-top: 12px;*/
+    /*padding-bottom: 0px;*/
+/*}*/
 
-#net-donations {
-    background: #33CC99;
-    width: 200px;
-    position: relative;
-    height: 60px;
-    font-size: 29px;
-    color: white;
-    vertical-align: middle;
-    text-align: center;
-    padding-top: 12px;
-    padding-bottom: 0px;
-}
+/*Don't know what this was for*/
+/*#net-donations {*/
+    /*background: #33CC99;*/
+    /*width: 200px;*/
+    /*position: relative;*/
+    /*height: 60px;*/
+    /*font-size: 29px;*/
+    /*color: white;*/
+    /*vertical-align: middle;*/
+    /*text-align: center;*/
+    /*padding-top: 12px;*/
+    /*padding-bottom: 0px;*/
+/*}*/
 
 .dc-select-menu {
     background: orangered;
@@ -78,15 +79,21 @@ li > a {
     float: right;
 }
 
-.section {
-    border: 2px solid lightgray;
-    border-radius: 5px;
+/*.section {*/
+    /*border: 2px solid lightgray;*/
+    /*border-radius: 5px;*/
+/*}*/
+
+.hider_group {
+    color: blue;
 }
 
 .hidden_group {
     display: none;
 }
 
-.hider_group {
-    color: blue;
+/*Changes colour of pie chart label (% marked in slice) from white to black.*/
+/*Allows use of same colours as row chart*/
+.dc-chart text.pie-slice {
+    fill: black;
 }
