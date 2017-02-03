@@ -81,7 +81,7 @@
             <div class="chart-wrapper" data-step=" 1 " data-intro="By default, the dashboard is set up to use the entire dataset. However, you can elect to use data for individual states by selecting them from the drop-down menu. If you do so, all the data visualisations will update to reflect the new dataset.
                 <br><br>To return to the entire US, click on ‘Select all’ in the dropdown menu.
                     "
-                 style="font-weight: normal" data-position="right">
+                 style="font-weight: normal" data-position="bottom">
                 <div class="chart-title">
                     Donation State
                 </div>
@@ -168,7 +168,7 @@
 
     <div class="row">
         <!-- Time Chart -->
-        <div class="col-md-12">
+        <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
             <div class="chart-wrapper" data-step=" 2 " data-intro="This time chart is also interactive.
                 <br><br>You can narrow the period of time covered to just that you are interested in.
                 <br><br>First, click on the graph. Two selectors appear; although they look like one, there is actually a left hand one and a right hand one next to each other. Click and drag the selectors so that the shaded area between them covers the desired period.
@@ -201,8 +201,22 @@
 
     <div class="row">
 
+        <!-- Poverty -->
+        <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-0 col-md-5 col-md-offset-1">
+            <div class="chart-wrapper">
+                <div class="chart-title">
+                    Poverty Level
+                    <a class="reset_chart" href="javascript:povertyLevelChart.filterAll();dc.redrawAll();">reset</a>
+                </div>
+                <div class="chart-stage">
+                    <div id="poverty-level-chart"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Poverty -->
+
         <!-- Primary Focus Area -->
-        <div class="col-xs-12 col-sm-6 col-lg-3">
+        <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-0 col-md-5">
             <div class="chart-wrapper" data-step=" 3 " data-intro="The two row charts and pie charts all behave in a similar fashion, in that you can click on them to narrow the selection of data.
                 <br><br>Click on a row, a segment, or a legend to make a selection. For instance, click on ‘Math and Science’ and all the visualisations in the dashboard will update to show projects whose primary area of focus was Math and Science.
                 <br><br>To reset individual charts, click ‘reset’ in the top right corner of the chart.
@@ -221,36 +235,12 @@
         </div>
         <!-- Primary Focus Area -->
 
-        <!-- Resources -->
-        <div class="col-xs-12 col-sm-6 col-lg-3">
-            <div class="chart-wrapper">
-                <div class="chart-title">
-                    Type of Resource
-                    <a class="reset_chart" href="javascript:resourceTypeChart.filterAll();dc.redrawAll();">reset</a>
-                </div>
-                <div class="chart-stage">
-                    <div id="resource-type-row-chart"></div>
-                </div>
-            </div>
-        </div>
-        <!-- Resources -->
+    </div>
 
-        <!-- Poverty -->
-        <div class="col-xs-12 col-sm-6 col-lg-3">
-            <div class="chart-wrapper">
-                <div class="chart-title">
-                    Poverty Level
-                    <a class="reset_chart" href="javascript:povertyLevelChart.filterAll();dc.redrawAll();">reset</a>
-                </div>
-                <div class="chart-stage">
-                    <div id="poverty-level-chart"></div>
-                </div>
-            </div>
-        </div>
-        <!-- Poverty -->
+    <div class="row">
 
         <!-- Grade Pie -->
-        <div class="col-xs-12 col-sm-6 col-lg-3">
+        <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-0 col-md-5 col-md-offset-1">
             <div class="chart-wrapper">
                 <div class="chart-title">
                     Grade Level
@@ -262,6 +252,20 @@
             </div>
         </div>
         <!-- Grade Pie -->
+
+        <!-- Resources -->
+        <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-0 col-md-5">
+            <div class="chart-wrapper">
+                <div class="chart-title">
+                    Type of Resource
+                    <a class="reset_chart" href="javascript:resourceTypeChart.filterAll();dc.redrawAll();">reset</a>
+                </div>
+                <div class="chart-stage">
+                    <div id="resource-type-row-chart"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Resources -->
 
     </div>
 

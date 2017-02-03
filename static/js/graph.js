@@ -135,7 +135,7 @@ function makeGraphs(error, projectsJson) {
     timeChart
         // .ordinalColors(["#C96A23"])
         .ordinalColors(["#FF4500"])
-        .width(1150)
+        .width(780)
         .height(300)
         .margins({top: 30, right: 50, bottom: 30, left: 50})
         .dimension(dateDim)
@@ -150,16 +150,16 @@ function makeGraphs(error, projectsJson) {
 
 
     resourceTypeChart
-        .ordinalColors(["#79CED7", "#66AFB2", "#C96A23", "#D3D1C5", "#F5821F"])
-        .width(300)
+        .ordinalColors(["#79CED7", "#FFB347", "#FFD1DC", "#D3D1C5", "#F5821F", "#66AFB2"])
+        .width(370)
         .height(250)
         .dimension(resourceTypeDim)
         .group(numProjectsByResourceType)
         .xAxis().ticks(4);
 
     primaryAreaChart
-        .ordinalColors(["#79CED7", "#66AFB2", "#C96A23", "#D3D1C5", "#F5821F"])
-        .width(300)
+        .ordinalColors(["#79CED7", "#FFB347", "#FFD1DC", "#D3D1C5", "#F5821F", "#66AFB2"])
+        .width(370)
         .height(250)
         .dimension(resourceTypeDim)
         .group(numProjectsByPrimaryArea)
@@ -167,14 +167,15 @@ function makeGraphs(error, projectsJson) {
 
     povertyLevelChart
         .ordinalColors(['#3182bd', '#6baed6', '#9ecae1', '#c6dbef', '#dadaeb'])
-        .height(220)
-        .radius(90)
+        .height(250)
+        .width(325)
+        .radius(100)
         .innerRadius(0)  // changed from 40 to make standard pie chart
         .transitionDuration(1500)
         .dimension(gradeLevel)
         .group(numProjectsByPovertyLevel)
         .legend(dc.legend().x(10).y(10).itemHeight(13).gap(5))  // adds a legend
-        //.cx(numerical value) use to move doughnut on x axis to clear legend
+        .cx(215)  // moves doughnut on x axis to clear legend
         //.cy(num)
         .label(function (d) {  // to display percentage rather than d.key
                 if (gradeLevelChart.hasFilter() && !gradeLevelChart.hasFilter(d.key)) {
@@ -189,14 +190,15 @@ function makeGraphs(error, projectsJson) {
 
     gradeLevelChart
         .ordinalColors(['#3182bd', '#6baed6', '#9ecae1', '#c6dbef', '#dadaeb'])
-        .height(220)
-        .radius(90)
+        .height(250)
+        .width(325)
+        .radius(100)
         .innerRadius(0)  // changed from 40 to make standard pie chart
         .transitionDuration(1500)
         .dimension(gradeLevel)
         .group(numProjectsByGradeLevel)
         .legend(dc.legend().x(10).y(10).itemHeight(13).gap(5))  // adds a legend
-        //.cx(numerical value) use to move doughnut on x axis to clear legend
+        .cx(215)  // moves pie chart on x axis to clear legend
         //.cy(num)
         .label(function (d) {  // to display percentage rather than d.key
             if (gradeLevelChart.hasFilter() && !gradeLevelChart.hasFilter(d.key)) {
