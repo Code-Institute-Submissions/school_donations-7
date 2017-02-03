@@ -97,3 +97,19 @@ li > a {
 .dc-chart text.pie-slice {
     fill: black;
 }
+
+.customDefault .introjs-nextbutton {
+        color: orangered;
+}
+
+.lastStep .introjs-nextbutton {
+        color: gray;
+}
+
+.lastStep .introjs-skipbutton {
+        color: orangered;
+}
+
+.customDefault span {
+        font-weight: bold;
+}
