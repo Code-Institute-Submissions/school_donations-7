@@ -150,7 +150,7 @@ function makeGraphs(error, projectsJson) {
 
 
     resourceTypeChart
-        .ordinalColors(["#79CED7", "#FFB347", "#FFD1DC", "#D3D1C5", "#F5821F", "#66AFB2"])
+        .ordinalColors(["#79CED7", "#FFB347", "#FFD1DC", "#FFFF00", "#F5821F", "#66AFB2"])
         .width(370)
         .height(250)
         .dimension(resourceTypeDim)
@@ -158,10 +158,10 @@ function makeGraphs(error, projectsJson) {
         .xAxis().ticks(4);
 
     primaryAreaChart
-        .ordinalColors(["#79CED7", "#FFB347", "#FFD1DC", "#D3D1C5", "#F5821F", "#66AFB2"])
+        .ordinalColors(["#79CED7", "#FFB347", "#FFD1DC", "#FFFF00", "#F5821F", "#66AFB2"])
         .width(370)
         .height(250)
-        .dimension(resourceTypeDim)
+        .dimension(primaryAreaDim)
         .group(numProjectsByPrimaryArea)
         .xAxis().ticks(4);
 
@@ -172,7 +172,7 @@ function makeGraphs(error, projectsJson) {
         .radius(100)
         .innerRadius(0)  // changed from 40 to make standard pie chart
         .transitionDuration(1500)
-        .dimension(gradeLevel)
+        .dimension(povertyLevelDim)
         .group(numProjectsByPovertyLevel)
         .legend(dc.legend().x(10).y(10).itemHeight(13).gap(5))  // adds a legend
         .cx(215)  // moves doughnut on x axis to clear legend
