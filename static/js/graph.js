@@ -118,7 +118,64 @@ function makeGraphs(error, projectsJson) {
 
     selectField = dc.selectMenu('#menu-select')
         .dimension(stateDim)
-        .group(stateGroup);
+        .group(stateGroup)
+        .title(function(d) {
+                var stateNames = {
+                    AK: 'Alaska',
+                    AL: 'Alabama',
+                    AR: 'Arkansas',
+                    AZ: 'Arizona',
+                    CA: 'California',
+                    CO: 'Colorado',
+                    CT: 'Conneticut',
+                    DC: 'District of Columbia',
+                    DE: 'Delaware',
+                    FL: 'Florida',
+                    GA: 'Georgia',
+                    HI: 'Hawaii',
+                    IA: 'Iowa',
+                    ID: 'Idaho',
+                    IL: 'Illinois',
+                    IN: 'Indiana',
+                    KS: 'Kansas',
+                    KY: 'Kentucky',
+                    LA: 'Louisiana',
+                    La: 'La',
+                    MA: 'Massachusetts',
+                    MD: 'Maryland',
+                    ME: 'Maine',
+                    MI: 'Michigan',
+                    MN: 'Minnesota',
+                    MO: 'Missouri',
+                    MS: 'Mississippi',
+                    MT: 'Montana',
+                    NC: 'North Carolina',
+                    ND: 'North Dakota',
+                    NE: 'Nebraska',
+                    NH: 'New Hampshire',
+                    NJ: 'New Jersey',
+                    NM: 'New Mexico',
+                    NV: 'Nevada',
+                    NY: 'New York',
+                    OH: 'Ohio',
+                    OK: 'Oklahoma',
+                    OR: 'Oregan',
+                    PA: 'Pennsylvania',
+                    RI: 'Rhode Island',
+                    SC: 'South Carolina',
+                    SD: 'South Dakota',
+                    TN: 'Tennessee',
+                    TX: 'Texas',
+                    UT: 'Utah',
+                    VA: 'Virginia',
+                    VT: 'Vermont',
+                    WA: 'Washington',
+                    WI: 'Wisconsin',
+                    WV: 'West Virginia',
+                    WY: 'Wyoming',
+                }
+                return stateNames[d.key] + ' (' + d.value + ')';
+            });
 
     numberProjectsND
         .formatNumber(d3.format("d"))
@@ -168,7 +225,7 @@ function makeGraphs(error, projectsJson) {
 
 
     resourceTypeChart
-        .ordinalColors(["#79CED7", "#FFB347", "#FFD1DC", "#FFFF00", "#F5821F", "#66AFB2"])
+        .ordinalColors(["#3182bd", "#FFB347", "#FFD1DC", "#FFFF00", "#F5821F", "#c6dbef", "#00FF00"])
         .width(370)
         .height(250)
         .dimension(resourceTypeDim)
@@ -176,7 +233,7 @@ function makeGraphs(error, projectsJson) {
         .xAxis().ticks(4);
 
     primaryAreaChart
-        .ordinalColors(["#79CED7", "#FFB347", "#FFD1DC", "#FFFF00", "#F5821F", "#66AFB2"])
+        .ordinalColors(["#3182bd", "#FFB347", "#FFD1DC", "#FFFF00", "#F5821F", "#c6dbef", "#00FF00"])
         .width(370)
         .height(250)
         .dimension(primaryAreaDim)
