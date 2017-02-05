@@ -4,7 +4,7 @@ queue()  // Used when dealing with data from multiple APIs. Not needed here but 
 
 
 // Charts
-// 'var' prefix removed and code moved into global scope
+// code moved into global scope
 var timeChart = dc.lineChart("#time-chart");
 var resourceTypeChart = dc.rowChart("#resource-type-row-chart");
 var primaryAreaChart = dc.rowChart("#primary-area-row-chart");
@@ -46,15 +46,15 @@ function makeGraphs(error, projectsJson) {
     var stateDim = ndx.dimension(function (d) {
         return d["school_state"];
     });
-    var totalDonationsDim = ndx.dimension(function (d) {
-        return d["total_donations"];
-    });
+    // var totalDonationsDim = ndx.dimension(function (d) {
+    //     return d["total_donations"];
+    // });
     var gradeLevel = ndx.dimension(function (d) {
         return d["grade_level"];
     });
-    var studentsReachedDim = ndx.dimension(function (d) {
-        return d["students_reached"];
-    });
+    // var studentsReachedDim = ndx.dimension(function (d) {
+    //     return d["students_reached"];
+    // });
     // var schoolsAssistedDim = ndx.dimension(function (d) {
     //     return d["_schoolid"];
     // });
@@ -178,37 +178,34 @@ function makeGraphs(error, projectsJson) {
             });
 
     numberProjectsND
-        .formatNumber(d3.format("d"))
+        .formatNumber(d3.format("n"))  // In the format [​[fill]align][sign][symbol][0][width][,][.precision][type] with "n" being shorthand for ",g"
         .valueAccessor(function (d) {
             return d;
         })
         .group(all);
 
     totalDonationsND
-        .formatNumber(d3.format("d"))
         .valueAccessor(function (d) {
             return d;
         })
         .group(totalDonations)
-        .formatNumber(d3.format(".3s"));
+        .formatNumber(d3.format("$n"));
 
     schoolsAssistedND
-        .formatNumber(d3.format("d"))
+        .formatNumber(d3.format("n"))
         .valueAccessor(function (d) {
             return d.id_count;
         })
         .group(schoolsAssisted);
 
     studentsReachedND
-        .formatNumber(d3.format("d"))
         .valueAccessor(function (d) {
             return d;
         })
         .group(studentsReached)
-        .formatNumber(d3.format(".3s"));
+        .formatNumber(d3.format("n"));  // In the format [​[fill]align][sign][symbol][0][width][,][.precision][type]
 
     timeChart
-        // .ordinalColors(["#C96A23"])
         .ordinalColors(["#FF4500"])
         .width(780)
         .height(300)

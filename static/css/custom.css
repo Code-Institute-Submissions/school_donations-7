@@ -1,17 +1,35 @@
 #number-projects-nd {
-    font-size: 40px;
+    font-size: 30px;
+    color: black;
+    float: right;  /*To align text to rhs (text-align: right didn't work)*/
 }
 
 #total-donations-nd {
-    font-size: 40px;
+    font-size: 30px;
+    color: black;
+    float: right;
 }
 
 #students-reached-nd {
-    font-size: 40px;
+    font-size: 30px;
+    color: black;
+    float: right;
 }
 
 #schools-assisted-nd {
-    font-size: 40px;
+    font-size: 30px;
+    color: black;
+    float: right;
+}
+
+/*.num-disp {*/
+    /*font-size: 30px;*/
+    /*color: black;*/
+    /*float: right;  !*To align text to rhs (text-align: right didn't work)*!*/
+/*}*/
+
+.chart-title {
+    text-align: center;
 }
 
 .dc-chart g.row text {
@@ -48,7 +66,7 @@
 
 .dc-select-menu {
     background: orangered;
-    width: 120%;
+    width: 100%;
     border: none;
     position: relative;
     height: 31px;
@@ -58,6 +76,7 @@
     text-align: center;
     padding-top: 4px;
     padding-bottom: 0px;
+    margin: auto;
 }
 /* Slightly indent the navbar buttons from rhs */
 li > a {
