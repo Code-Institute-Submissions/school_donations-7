@@ -13,7 +13,7 @@ var numberProjectsND = dc.numberDisplay("#number-projects-nd");
 var totalDonationsND = dc.numberDisplay("#total-donations-nd");
 var gradeLevelChart = dc.pieChart("#grade-chart");
 var studentsReachedND = dc.numberDisplay("#students-reached-nd");
-// schoolsAssistedND = dc.numberDisplay("#schools-assisted-nd");
+var schoolsAssistedND = dc.numberDisplay("#schools-assisted-nd");
 
 function makeGraphs(error, projectsJson) {
 
@@ -79,13 +79,32 @@ function makeGraphs(error, projectsJson) {
     var studentsReached = ndx.groupAll().reduceSum(function (d) {
         return d["students_reached"];
     });
-    // var schoolsAssisted = {  // Code doesn't work - needs addressing. All other schoolsAssisted code is commented-out
-    //     value: function() {
-    //         return ndx.all().filter(function (d) {
-    //             return d["_schoolid"];
-    //         }).length;
-    //     }
-    // };
+    // Code taken from http://stackoverflow.com/questions/31686248/number-of-unique-values-using-crossfilter
+    var schoolsAssisted = ndx.groupAll().reduce(
+        function (p, d) {
+            if(d._schoolid in p.ids){
+                p.ids[d._schoolid] += 1
+            }
+            else{
+                p.ids[d._schoolid] = 1;
+                p.id_count++;
+            }
+            return p;
+        },
+
+        function (p, d) {
+            p.ids[d._schoolid]--;
+            if(p.ids[d._schoolid] === 0){
+                delete p.ids[d._schoolid];
+                p.id_count--;
+            }
+            return p;
+        },
+
+        function () {
+                return {ids: {},
+                id_count: 0};
+            });
 
     var max_state = totalDonationsByState.top(1)[0].value;
 
@@ -116,13 +135,12 @@ function makeGraphs(error, projectsJson) {
         .group(totalDonations)
         .formatNumber(d3.format(".3s"));
 
-    // schoolsAssistedND
-    //     .formatNumber(d3.format("d"))
-    //     .valueAccessor(function (d) {
-    //         return d;
-    //     })
-    //     .group(schoolsAssisted)
-    //     .formatNumber(d3.format(".3s"));
+    schoolsAssistedND
+        .formatNumber(d3.format("d"))
+        .valueAccessor(function (d) {
+            return d.id_count;
+        })
+        .group(schoolsAssisted);
 
     studentsReachedND
         .formatNumber(d3.format("d"))
