@@ -11,7 +11,7 @@ var primaryAreaChart = dc.rowChart("#primary-area-row-chart");
 var povertyLevelChart = dc.pieChart("#poverty-level-chart");
 var numberProjectsND = dc.numberDisplay("#number-projects-nd");
 var totalDonationsND = dc.numberDisplay("#total-donations-nd");
-var gradeLevelChart = dc.pieChart("#grade-chart");
+var gradeLevelChart = dc.pieChart("#grade-level-chart");
 var studentsReachedND = dc.numberDisplay("#students-reached-nd");
 var schoolsAssistedND = dc.numberDisplay("#schools-assisted-nd");
 
@@ -49,9 +49,11 @@ function makeGraphs(error, projectsJson) {
     // var totalDonationsDim = ndx.dimension(function (d) {
     //     return d["total_donations"];
     // });
-    var gradeLevel = ndx.dimension(function (d) {
+    var gradeLevelDim = ndx.dimension(function (d) {
         return d["grade_level"];
     });
+
+
     // var studentsReachedDim = ndx.dimension(function (d) {
     //     return d["students_reached"];
     // });
@@ -65,7 +67,7 @@ function makeGraphs(error, projectsJson) {
     var numProjectsByResourceType = resourceTypeDim.group();
     var numProjectsByPrimaryArea = primaryAreaDim.group();
     var numProjectsByPovertyLevel = povertyLevelDim.group();
-    var numProjectsByGradeLevel = gradeLevel.group();
+    var numProjectsByGradeLevel = gradeLevelDim.group();
     var totalDonationsByState = stateDim.group().reduceSum(function (d) {
         return d["total_donations"];
     });
@@ -112,9 +114,8 @@ function makeGraphs(error, projectsJson) {
     var minDate = dateDim.bottom(1)[0]["date_posted"];  // To calculate the x axis range
     var maxDate = dateDim.top(1)[0]["date_posted"];
 
-
- // Charts variables previously defined here
-
+    //Format large numbers to include commas
+    var addCommas = (d3.format("n"));
 
     selectField = dc.selectMenu('#menu-select')
         .dimension(stateDim)
@@ -213,11 +214,13 @@ function makeGraphs(error, projectsJson) {
         .dimension(dateDim)
         .group(numProjectsByDate)
         .renderArea(true)
-        .transitionDuration(500)
+        .transitionDuration(1500)
         .x(d3.time.scale().domain([minDate, maxDate]))
         .elasticY(true)
         .elasticX(true)
         .xAxisLabel("Year")
+        .renderHorizontalGridLines(true)
+        .renderVerticalGridLines(true)
         .yAxis().ticks(6);
 
 
@@ -227,6 +230,20 @@ function makeGraphs(error, projectsJson) {
         .height(250)
         .dimension(resourceTypeDim)
         .group(numProjectsByResourceType)
+        .transitionDuration(1500)
+        .elasticX(true)
+        .title(function (d) {  // Displayed in tooltip
+            return addCommas(d.value);
+        })
+        .label(function (d) {  // Displayed on the chart
+            if (resourceTypeChart.hasFilter() && !resourceTypeChart.hasFilter(d.key)) {
+                return '0%';
+            }
+            if (all.value()) {
+                var label = Math.floor(d.value / all.value() * 100) + '%';
+            }
+            return d.key + " (" + label + ")";
+        })
         .xAxis().ticks(4);
 
     primaryAreaChart
@@ -235,6 +252,20 @@ function makeGraphs(error, projectsJson) {
         .height(250)
         .dimension(primaryAreaDim)
         .group(numProjectsByPrimaryArea)
+        .transitionDuration(1500)
+        .elasticX(true)
+        .title(function (d) {  // Displayed in tooltip
+            return addCommas(d.value);
+        })
+        .label(function (d) {  // Displayed on the chart
+            if (primaryAreaChart.hasFilter() && !primaryAreaChart.hasFilter(d.key)) {
+                return '0%';
+            }
+            if (all.value()) {
+                var label = Math.floor(d.value / all.value() * 100) + '%';
+            }
+            return d.key + " (" + label + ")";
+        })
         .xAxis().ticks(4);
 
     povertyLevelChart
@@ -249,16 +280,19 @@ function makeGraphs(error, projectsJson) {
         .legend(dc.legend().x(10).y(10).itemHeight(13).gap(5))  // adds a legend
         .cx(215)  // moves doughnut on x axis to clear legend
         //.cy(num)
-        .label(function (d) {  // to display percentage rather than d.key
-                if (gradeLevelChart.hasFilter() && !gradeLevelChart.hasFilter(d.key)) {
+        .label(function (d) {  // Displayed on the chart
+                if (povertyLevelChart.hasFilter() && !povertyLevelChart.hasFilter(d.key)) {
                     return '0%';
                 }
-                // var label = d.key;
                 if (all.value()) {
                     var label = Math.floor(d.value / all.value() * 100) + '%';
                 }
                 return label;
-            });
+            })
+        .title(function (d) {  // Displayed in tooltip
+            return d.key + ': ' + addCommas(d.value);
+        });
+
 
     gradeLevelChart
         .ordinalColors(['#3182bd', '#6baed6', '#9ecae1', '#c6dbef', '#dadaeb'])
@@ -267,20 +301,22 @@ function makeGraphs(error, projectsJson) {
         .radius(100)
         .innerRadius(0)  // changed from 40 to make standard pie chart
         .transitionDuration(1500)
-        .dimension(gradeLevel)
+        .dimension(gradeLevelDim)
         .group(numProjectsByGradeLevel)
         .legend(dc.legend().x(10).y(10).itemHeight(13).gap(5))  // adds a legend
         .cx(215)  // moves pie chart on x axis to clear legend
         //.cy(num)
-        .label(function (d) {  // to display percentage rather than d.key
+        .label(function (d) {  // Displayed on the chart
             if (gradeLevelChart.hasFilter() && !gradeLevelChart.hasFilter(d.key)) {
                 return '0%';
             }
-            // var label = d.key;
             if (all.value()) {
                 var label = Math.floor(d.value / all.value() * 100) + '%';
             }
             return label;
+        })
+        .title(function (d) {  // Displayed in tooltip
+            return d.key + ': ' + addCommas(d.value);
         });
 
     dc.renderAll();

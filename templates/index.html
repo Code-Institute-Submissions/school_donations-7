@@ -79,7 +79,7 @@
         <!-- state select -->
         <div class="col-xs-4 col-lg-3 row1">
             <div class="chart-wrapper" data-step=" 1 " data-intro="By default, the dashboard is set up to use the entire dataset. However, you can elect to use data for individual states by selecting them from the <span>drop-down menu</span>. If you do so, all the data visualisations will update to reflect the new dataset.
-                <br><br>To return to the entire US, click on ‘Select all’ in the dropdown menu.
+                    <br><br>To return to the entire US, click on <span>Select all</span> in the dropdown menu.
                     "
                  style="font-weight: normal">
                 <div class="chart-title">
@@ -160,14 +160,13 @@
     <div class="row">
         <!-- Time Chart -->
         <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-            <div class="chart-wrapper" data-step=" 2 " data-intro="You can narrow the time period covered by clicking on the graph until a grey bar appears. This is actually the left and right selectors.
+            <div class="chart-wrapper" data-step=" 2 " data-intro="You can narrow the time period covered by clicking and dragging your mouse on the graph. A grey bar appears which is actually a left and right selector.
                     <br><br>Click and drag the selectors so that the shaded area between them covers the desired period.
                     <br><br>If you wish to remove a selected time period, just click on <span>reset</span> in the top right corner of the chart.
-
                     "
                  style="font-weight: normal">
                 <div class="chart-title">
-                    Number of Projects
+                    Projects Over Time
                     <a class="reset_chart" href="javascript:timeChart.filterAll();dc.redrawAll();">reset</a>
                 </div>
                 <div class="chart-stage">
@@ -184,7 +183,7 @@
 
         <div class="col-sm-12">
             <h4>Project attributes</h4>
-                <p>The following four charts display different attributes of the projects selected. If you are interested in data for certain attributes, for instance you may wish to look at projects aimed at students in the most impoverished locations, you can select an attribute (or several) and the other charts are updated to show that data.</p>
+                <p>The following four charts display different attributes of the projects selected. Numbers shown relate to projects: either number of projects or percentage of total projects. If you are interested in data for certain attributes, for instance you may wish to look at projects aimed at students in the most impoverished locations, you can select an attribute (or several) and the other charts are updated to show that data.</p>
         </div>
 
     </div>
@@ -194,7 +193,7 @@
         <!-- Poverty -->
         <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-0 col-md-5 col-md-offset-1">
             <div class="chart-wrapper" data-step=" 3 " data-intro="The four row charts and pie charts all behave in a similar fashion:
-                    <br><br><span>Hover</span> over a row/segment and the attribute and number of projects will be displayed.
+                    <br><br><span>Hover</span> over a row/segment and the tooltip displays the number of projects.
                     "
                  style="font-weight: normal">
                 <div class="chart-title">
@@ -210,7 +209,7 @@
 
         <!-- Primary Focus Area -->
         <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-0 col-md-5">
-            <div class="chart-wrapper" data-step=" 4 " data-intro="<span>Click</span> on a row, a segment, or the legend to select an attribute. The other visualisations will then update to show data based on your selection.
+            <div class="chart-wrapper" data-step=" 4 " data-intro="<span>Click</span> on a row, a segment, or the legend to select one or more attributes. The other visualisations will then update to show data based on your selection.
                     <br><br>For instance, click on ‘Math and Science’ in the Primary Focus Chart and all the other visualisations in the dashboard will update to only show data for projects whose primary area of focus was Math and Science.
                     "
                  style="font-weight: normal">
@@ -231,7 +230,7 @@
 
         <!-- Grade Pie -->
         <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-0 col-md-5 col-md-offset-1">
-            <div class="chart-wrapper" data-step=" 5 " data-intro="To reset selections you have made in individual charts, click <span>reset</span> in the top right corner of the chart.
+            <div class="chart-wrapper" data-step=" 5 " data-intro="To change selections you have made in individual charts, either click on a selected attribute to de-select it, or click on <span>reset</span> in the top right corner of the chart to remove all selections from the individual chart.
                     "
                  style="font-weight: normal">
                 <div class="chart-title">
@@ -239,7 +238,7 @@
                     <a class="reset_chart" href="javascript:gradeLevelChart.filterAll();dc.redrawAll();">reset</a>
                 </div>
                 <div class="chart-stage">
-                    <div id="grade-chart"></div>
+                    <div id="grade-level-chart"></div>
                 </div>
             </div>
         </div>
@@ -247,7 +246,7 @@
 
         <!-- Resources -->
         <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-0 col-md-5">
-            <div class="chart-wrapper" data-step=" 6 " data-tooltipClass='lastStep' data-intro="To reset all the visualisations on the dashboard, click <span>Reset Data</span> in the navigation bar.
+            <div class="chart-wrapper" data-step=" 6 " data-tooltipClass='lastStep' data-intro="To reset all the visualisations on the dashboard and remove any selections you have made, click <span>Reset Data</span> in the navigation bar.
                     <br><br>Please note, however, that Reset Data does not reset Donation State to its default ‘Select All’ and has to be reset manually via the drop-down menu.
                     "
                  style="font-weight: normal">

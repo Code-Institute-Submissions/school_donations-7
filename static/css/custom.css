@@ -22,6 +22,14 @@
     float: right;
 }
 
+.dc-select-menu {
+    margin: 20px;
+}
+
+.chart-stage {
+    margin: auto;
+}
+
 /*.num-disp {*/
     /*font-size: 30px;*/
     /*color: black;*/
