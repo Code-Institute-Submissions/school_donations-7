@@ -1,77 +1,19 @@
-#number-projects-nd {
-    font-size: 30px;
-    color: black;
-    float: right;  /*To align text to rhs (text-align: right didn't work)*/
+/* Slightly indent the navbar buttons from rhs */
+li > a {
+    margin-right: 20px;
 }
 
-#total-donations-nd {
-    font-size: 30px;
-    color: black;
-    float: right;
+/*style the 3 questions near the top*/
+.hider_group {
+    color: blue;
 }
 
-#students-reached-nd {
-    font-size: 30px;
-    color: black;
-    float: right;
+/*change default toggle status of answers*/
+.hidden_group {
+    display: none;
 }
 
-#schools-assisted-nd {
-    font-size: 30px;
-    color: black;
-    float: right;
-}
-
-.dc-select-menu {
-    margin: 20px;
-}
-
-.chart-stage {
-    margin: auto;
-}
-
-/*.num-disp {*/
-    /*font-size: 30px;*/
-    /*color: black;*/
-    /*float: right;  !*To align text to rhs (text-align: right didn't work)*!*/
-/*}*/
-
-.chart-title {
-    text-align: center;
-}
-
-.dc-chart g.row text {
-    fill: black;
-    font-size: 12px;
-}
-
-/*#total-projects {*/
-    /*background: #33CC99;*/
-    /*width: 200px;*/
-    /*position: relative;*/
-    /*height: 60px;*/
-    /*font-size: 29px;*/
-    /*color: white;*/
-    /*vertical-align: middle;*/
-    /*text-align: center;*/
-    /*padding-top: 12px;*/
-    /*padding-bottom: 0px;*/
-/*}*/
-
-/*Don't know what this was for*/
-/*#net-donations {*/
-    /*background: #33CC99;*/
-    /*width: 200px;*/
-    /*position: relative;*/
-    /*height: 60px;*/
-    /*font-size: 29px;*/
-    /*color: white;*/
-    /*vertical-align: middle;*/
-    /*text-align: center;*/
-    /*padding-top: 12px;*/
-    /*padding-bottom: 0px;*/
-/*}*/
-
+/*style the Donation State drop-down menu*/
 .dc-select-menu {
     background: orangered;
     width: 100%;
@@ -86,45 +28,47 @@
     padding-bottom: 0px;
     margin: auto;
 }
-/* Slightly indent the navbar buttons from rhs */
-li > a {
-    margin-right: 20px;
+
+/*centre the number display titles in the div (flexbox not req'd)*/
+.chart-title {
+    text-align: center;
 }
 
-/* To space out the divs in the top data row - doesn't work*/
-/*
-.row1 {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: stretch;
-    align-content: flex-start;
+/*set parent div of state menu and number displays to allow use of flexbox to centre content */
+.chart-stage {
+    display: flex;
+    align-items: center;
 }
-*/
 
+/*centre the drop-down menu within parent*/
+#menu-select {
+    margin: auto;
+}
+
+/*style number displays*/
+.num-disp {
+    margin: auto;  /* to centre the numbers*/
+    font-size: 22px;
+    color: black;
+}
+
+/*move the 'reset' to the right side of the chart title*/
 .reset_chart {
     float: right;
 }
 
-/*.section {*/
-    /*border: 2px solid lightgray;*/
-    /*border-radius: 5px;*/
-/*}*/
-
-.hider_group {
-    color: blue;
+/*style row chart labels (text displayed in bars)*/
+.dc-chart g.row text {
+    fill: black;
+    font-size: 12px;
 }
 
-.hidden_group {
-    display: none;
-}
-
-/*Changes colour of pie chart label (% marked in slice) from white to black.*/
-/*Allows use of same colours as row chart*/
+/*make pie chart label text black*/
 .dc-chart text.pie-slice {
     fill: black;
 }
 
+/*style intro.js*/
 .customDefault .introjs-nextbutton {
         color: orangered;
 }
