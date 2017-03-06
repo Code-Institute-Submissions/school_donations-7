@@ -128,7 +128,7 @@ function makeGraphs(error, projectsJson) {
                     AZ: 'Arizona',
                     CA: 'California',
                     CO: 'Colorado',
-                    CT: 'Conneticut',
+                    CT: 'Connecticut',
                     DC: 'District of Columbia',
                     DE: 'Delaware',
                     FL: 'Florida',
@@ -160,7 +160,7 @@ function makeGraphs(error, projectsJson) {
                     NY: 'New York',
                     OH: 'Ohio',
                     OK: 'Oklahoma',
-                    OR: 'Oregan',
+                    OR: 'Oregon',
                     PA: 'Pennsylvania',
                     RI: 'Rhode Island',
                     SC: 'South Carolina',
@@ -225,7 +225,7 @@ function makeGraphs(error, projectsJson) {
 
 
     resourceTypeChart
-        .ordinalColors(["#3182bd", "#FFB347", "#FFD1DC", "#FFFF00", "#F5821F", "#c6dbef", "#00FF00"])
+        .ordinalColors(["#ffb3d9", "#ff99cc", "#ff80bf", "#ff66b3", "#ff66b3", "#ff4da6", "#ff3399"])
         .width(370)
         .height(250)
         .dimension(resourceTypeDim)
@@ -247,7 +247,7 @@ function makeGraphs(error, projectsJson) {
         .xAxis().ticks(4);
 
     primaryAreaChart
-        .ordinalColors(["#3182bd", "#FFB347", "#FFD1DC", "#FFFF00", "#F5821F", "#c6dbef", "#00FF00"])
+        .ordinalColors(["#ffd699", "#ffcc80", "#ffc266", "#ffb84d", "#ffad33", "#ffa31a", "#ff9900"])
         .width(370)
         .height(250)
         .dimension(primaryAreaDim)
@@ -269,7 +269,8 @@ function makeGraphs(error, projectsJson) {
         .xAxis().ticks(4);
 
     povertyLevelChart
-        .ordinalColors(['#3182bd', '#6baed6', '#9ecae1', '#c6dbef', '#dadaeb'])
+        // .ordinalColors(['#3182bd', '#6baed6', '#9ecae1', '#c6dbef'])
+        .ordinalColors(['#ffff00', '#ffff4c', '#ffff99', '#ffffcc'])
         .height(250)
         .width(325)
         .radius(100)
@@ -295,7 +296,7 @@ function makeGraphs(error, projectsJson) {
 
 
     gradeLevelChart
-        .ordinalColors(['#3182bd', '#6baed6', '#9ecae1', '#c6dbef', '#dadaeb'])
+        .ordinalColors(['#beffaa', '#72ff5e', '#3fee2b', '#00a100'])
         .height(250)
         .width(325)
         .radius(100)

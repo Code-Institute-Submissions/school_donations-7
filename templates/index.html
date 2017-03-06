@@ -25,8 +25,8 @@
   <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav navbar-right">
         <li><a autofocus href="#" onclick="javascript:introJs().setOption('showBullets', false).setOption('tooltipPosition', 'auto').setOption('tooltipClass', 'customDefault').start();">
-                Start Tour!</a></li>
-        <li><a href="javascript:dc.filterAll();dc.redrawAll();">Reset Data</a></li>
+                Website tour</a></li>
+        <li><a href="javascript:dc.filterAll();dc.redrawAll();">Reset data</a></li>
     </ul>
   </div>
 </nav>
@@ -38,7 +38,7 @@
     <!--Opening text-->
     <div class="row">
         <div class="col-xs-12">
-            <h4>This is an interactive dashboard created from data made available by <a href="https://www.donorschoose.org/">DonorsChoose.org</a>.</h4>
+            <h4>This is an interactive dashboard created from data made available by <a target="_blank" href="https://www.donorschoose.org/">DonorsChoose.org</a>.</h4>
             <br>
             <p>Click on the following to expand:</p>
             <h4 class="hider_group" id="hider1">Who is DonorsChoose.org?</h4>
@@ -50,13 +50,13 @@
             <br>
             <h4 class="hider_group" id="hider2">What is the purpose of this website?</h4>
                 <div class="hidden_group" id="hidden2">
-                    <p>I am a graduate who benefited from DonorsChoose.org’s funding whilst at high school. I have built this website to promote the good work that DonorsChoose.org does, and as an interactive tool to allow people to look more closely at the projects supported.</p>
+                    <p>I am a graduate who benefited from DonorsChoose.org’s funding whilst at high school. I have created this website to promote the good work that DonorsChoose.org does, and as an interactive tool to allow people to look more closely at the projects supported.</p>
                 </div>
             <br>
             <h4 class="hider_group" id="hider3">How do I use this website?</h4>
                 <div class="hidden_group" id="hidden3">
                     <p>The data provided by DonorsChoose.org has been used to build interactive visualisations that you can manipulate to show information that interests you. For instance, you can look at data from your home state, or for projects supporting your favourite subject, or both at the same time!<p>
-                    <p>There are instructions written to help you manipulate the visualisations in order to filter the information you are looking for. Just click on the ‘Start Tour!’ button at the top of the page to begin!</p>
+                    <p>There are instructions written to help you manipulate the visualisations in order to filter the information you are looking for. Just click on the ‘Website Tour’ button at the top of the page to begin!</p>
                 </div>
             <br>
         </div>
@@ -83,7 +83,7 @@
                     "
                  style="font-weight: normal">
                 <div class="chart-title">
-                    Donation State
+                    U.S. State
                 </div>
                 <div class="chart-stage">
                     <div id="menu-select"></div>
@@ -96,7 +96,7 @@
         <div class="col-xs-4 col-md-3 col-md-offset-1 col-lg-2 col-lg-offset-1">
             <div class="chart-wrapper">
                 <div class="chart-title">
-                    Number of Projects
+                    Number of projects
                 </div>
                 <div class="chart-stage">
                     <div class="num-disp" id="number-projects-nd"></div>
@@ -109,7 +109,7 @@
         <div class="col-xs-4 col-md-3 col-md-offset-1 col-lg-2 col-lg-offset-0">
             <div class="chart-wrapper">
                 <div class="chart-title">
-                    Total Donations
+                    Total donations
                 </div>
                 <div class="chart-stage">
                     <div class="num-disp" id="total-donations-nd"></div>
@@ -122,7 +122,7 @@
         <div class="col-xs-4 col-xs-offset-4 col-md-3 col-md-offset-5 col-lg-2 col-lg-offset-0">
             <div class="chart-wrapper">
                 <div class="chart-title">
-                    Schools Assisted
+                    Schools assisted
                 </div>
                 <div class="chart-stage">
                     <div class="num-disp" id="schools-assisted-nd"></div>
@@ -135,7 +135,7 @@
         <div class="col-xs-4 col-md-3 col-md-offset-1 col-lg-2 col-lg-offset-0">
             <div class="chart-wrapper">
                 <div class="chart-title">
-                    Students Reached
+                    Students reached
                 </div>
                 <div class="chart-stage">
                     <div class="num-disp" id="students-reached-nd"></div>
@@ -166,7 +166,7 @@
                     "
                  style="font-weight: normal">
                 <div class="chart-title">
-                    Projects Over Time
+                    Projects over time
                     <a class="reset_chart" href="javascript:timeChart.filterAll();dc.redrawAll();">reset</a>
                 </div>
                 <div class="chart-stage">
@@ -197,7 +197,7 @@
                     "
                  style="font-weight: normal">
                 <div class="chart-title">
-                    Poverty Level
+                    Poverty level
                     <a class="reset_chart" href="javascript:povertyLevelChart.filterAll();dc.redrawAll();">reset</a>
                 </div>
                 <div class="chart-stage">
@@ -210,11 +210,11 @@
         <!-- Primary Focus Area -->
         <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-0 col-md-5">
             <div class="chart-wrapper" data-step=" 4 " data-intro="<span>Click</span> on a row, a segment, or the legend to select one or more attributes. The other visualisations will then update to show data based on your selection.
-                    <br><br>For instance, click on ‘Math and Science’ in the Primary Focus Chart and all the other visualisations in the dashboard will update to only show data for projects whose primary area of focus was Math and Science.
+                    <br><br>For instance, click on ‘Math & Science’ in the Primary focus area chart and all the other visualisations in the dashboard will update to only show data for projects whose primary area of focus was Math & Science.
                     "
                  style="font-weight: normal">
                 <div class="chart-title">
-                    Primary Focus Area
+                    Primary focus area
                     <a class="reset_chart" href="javascript:primaryAreaChart.filterAll();dc.redrawAll();">reset</a>
                 </div>
                 <div class="chart-stage">
@@ -234,7 +234,7 @@
                     "
                  style="font-weight: normal">
                 <div class="chart-title">
-                    Grade Level
+                    Grade level
                     <a class="reset_chart" href="javascript:gradeLevelChart.filterAll();dc.redrawAll();">reset</a>
                 </div>
                 <div class="chart-stage">
@@ -246,12 +246,12 @@
 
         <!-- Resources -->
         <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-0 col-md-5">
-            <div class="chart-wrapper" data-step=" 6 " data-tooltipClass='lastStep' data-intro="To reset all the visualisations on the dashboard and remove any selections you have made, click <span>Reset Data</span> in the navigation bar.
-                    <br><br>Please note, however, that Reset Data does not reset Donation State to its default ‘Select All’ and has to be reset manually via the drop-down menu.
+            <div class="chart-wrapper" data-step=" 6 " data-tooltipClass='lastStep' data-intro="To reset all the visualisations on the dashboard and remove any selections you have made, click <span>Reset data</span> in the navigation bar.
+                    <br><br>Please note, however, that Reset data does not reset U.S. State to its default ‘Select all’ and has to be reset manually via the drop-down menu.
                     "
                  style="font-weight: normal">
                 <div class="chart-title">
-                    Type of Resource
+                    Type of resource
                     <a class="reset_chart" href="javascript:resourceTypeChart.filterAll();dc.redrawAll();">reset</a>
                 </div>
                 <div class="chart-stage">

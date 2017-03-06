@@ -13,9 +13,9 @@ li > a {
     display: none;
 }
 
-/*style the Donation State drop-down menu*/
+/*style the U.S.State drop-down menu*/
 .dc-select-menu {
-    background: orangered;
+    background: blue;
     width: 100%;
     border: none;
     position: relative;
@@ -25,13 +25,14 @@ li > a {
     vertical-align: middle;
     text-align: center;
     padding-top: 4px;
-    padding-bottom: 0px;
+    padding-bottom: 0;
     margin: auto;
 }
 
-/*centre the number display titles in the div (flexbox not req'd)*/
+/*centre the number display titles in each div (flexbox not req'd)*/
 .chart-title {
     text-align: center;
+    color: black !important;  /* to override keen-dashboard styling*/
 }
 
 /*set parent div of state menu and number displays to allow use of flexbox to centre content */
@@ -70,18 +71,26 @@ li > a {
 
 /*style intro.js*/
 .customDefault .introjs-nextbutton {
-        color: orangered;
+    color: red;
+    font-weight: bold;
 }
 
 .lastStep .introjs-nextbutton {
-        color: gray;
+    color: gray;
+    font-weight: normal;
 }
 
 .lastStep .introjs-skipbutton {
-        color: orangered;
+    color: red;
+    font-weight: bold;
 }
 
 .customDefault span {
-        font-weight: bold;
+    font-weight: bold;
 }
+
+.chart-wrapper {
+    border: 1px solid blue;
+}
+
 
