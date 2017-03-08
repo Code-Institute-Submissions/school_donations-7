@@ -225,7 +225,7 @@ function makeGraphs(error, projectsJson) {
 
 
     resourceTypeChart
-        .ordinalColors(["#ffb3d9", "#ff99cc", "#ff80bf", "#ff66b3", "#ff66b3", "#ff4da6", "#ff3399"])
+        .ordinalColors(["#ffa500", "#ffa500", "#ffa500", "#ffa500", "#ffa500", "#ffa500", "#ffa500"])
         .width(370)
         .height(250)
         .dimension(resourceTypeDim)
@@ -247,7 +247,7 @@ function makeGraphs(error, projectsJson) {
         .xAxis().ticks(4);
 
     primaryAreaChart
-        .ordinalColors(["#ffd699", "#ffcc80", "#ffc266", "#ffb84d", "#ffad33", "#ffa31a", "#ff9900"])
+        .ordinalColors(["#ff2189", "#ff2189", "#ff2189", "#ff2189", "#ff2189", "#ff2189"])
         .width(370)
         .height(250)
         .dimension(primaryAreaDim)
@@ -292,6 +292,18 @@ function makeGraphs(error, projectsJson) {
             })
         .title(function (d) {  // Displayed in tooltip
             return d.key + ': ' + addCommas(d.value);
+        })
+        .ordering(function (d) {
+            switch (d.key) {
+                case "highest poverty":
+                    return 0;
+                case "high poverty":
+                    return 1;
+                case "moderate poverty":
+                    return 2;
+                case "low poverty":
+                    return 3;
+            }
         });
 
 
@@ -318,6 +330,18 @@ function makeGraphs(error, projectsJson) {
         })
         .title(function (d) {  // Displayed in tooltip
             return d.key + ': ' + addCommas(d.value);
+        })
+        .ordering(function (d) {
+            switch (d.key) {
+                case "Grades PreK-2":
+                    return 0;
+                case "Grades 3-5":
+                    return 1;
+                case "Grades 6-8":
+                    return 2;
+                case "Grades 9-12":
+                    return 3;
+            }
         });
 
     dc.renderAll();
