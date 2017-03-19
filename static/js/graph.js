@@ -141,7 +141,6 @@ function makeGraphs(error, projectsJson) {
                     KS: 'Kansas',
                     KY: 'Kentucky',
                     LA: 'Louisiana',
-                    La: 'La',
                     MA: 'Massachusetts',
                     MD: 'Maryland',
                     ME: 'Maine',
