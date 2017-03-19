@@ -46,20 +46,9 @@ function makeGraphs(error, projectsJson) {
     var stateDim = ndx.dimension(function (d) {
         return d["school_state"];
     });
-    // var totalDonationsDim = ndx.dimension(function (d) {
-    //     return d["total_donations"];
-    // });
     var gradeLevelDim = ndx.dimension(function (d) {
         return d["grade_level"];
     });
-
-
-    // var studentsReachedDim = ndx.dimension(function (d) {
-    //     return d["students_reached"];
-    // });
-    // var schoolsAssistedDim = ndx.dimension(function (d) {
-    //     return d["_schoolid"];
-    // });
 
 
     //Calculate metrics
@@ -172,8 +161,8 @@ function makeGraphs(error, projectsJson) {
                     WA: 'Washington',
                     WI: 'Wisconsin',
                     WV: 'West Virginia',
-                    WY: 'Wyoming',
-                }
+                    WY: 'Wyoming'
+                };
                 return stateNames[d.key] + ' (' + d.value + ')';
             });
 
@@ -268,7 +257,6 @@ function makeGraphs(error, projectsJson) {
         .xAxis().ticks(4);
 
     povertyLevelChart
-        // .ordinalColors(['#3182bd', '#6baed6', '#9ecae1', '#c6dbef'])
         .ordinalColors(['#ffff00', '#ffff4c', '#ffff99', '#ffffcc'])
         .height(250)
         .width(325)
@@ -279,7 +267,6 @@ function makeGraphs(error, projectsJson) {
         .group(numProjectsByPovertyLevel)
         .legend(dc.legend().x(10).y(10).itemHeight(13).gap(5))  // adds a legend
         .cx(215)  // moves doughnut on x axis to clear legend
-        //.cy(num)
         .label(function (d) {  // Displayed on the chart
                 if (povertyLevelChart.hasFilter() && !povertyLevelChart.hasFilter(d.key)) {
                     return '0%';
@@ -317,7 +304,6 @@ function makeGraphs(error, projectsJson) {
         .group(numProjectsByGradeLevel)
         .legend(dc.legend().x(10).y(10).itemHeight(13).gap(5))  // adds a legend
         .cx(215)  // moves pie chart on x axis to clear legend
-        //.cy(num)
         .label(function (d) {  // Displayed on the chart
             if (gradeLevelChart.hasFilter() && !gradeLevelChart.hasFilter(d.key)) {
                 return '0%';
